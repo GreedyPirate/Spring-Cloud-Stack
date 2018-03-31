@@ -1,0 +1,12 @@
+server:
+  port: 8102
+spring:
+  application:
+    name: eureka-consumer-ribbon
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
+#    healthcheck:
+#      enabled: true 版本变化？
+

@@ -1,0 +1,16 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: eureka-server
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false #是否同步注册信息，集群模式请打开
+    service-url:
+      default-zone: http://localhost:8000/eureka/
+  server:
+    enable-self-preservation: false #关闭自我保护模式
+    eviction-interval-timer-in-ms: 30000 #清理无效节点的时间间隔
+  instance:
+    prefer-ip-address: #显示真实ip地址

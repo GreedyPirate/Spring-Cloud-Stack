@@ -1,0 +1,12 @@
+server:
+  port: 8103
+spring:
+  application:
+    name: eureka-consumer-feign
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
+#    healthcheck:
+#      enabled: true 版本变化？
+
