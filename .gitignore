@@ -16,3 +16,4 @@ maven-eclipse.xml
 *.iml
 .DS_Store
 .idea/*
+*/target
