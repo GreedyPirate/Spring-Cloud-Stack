@@ -1,0 +1,18 @@
+# eclipse setting files
+/.settings
+*/.settings
+.project
+.classpath
+maven-eclipse.xml
+.springBeans
+
+# maven target folder
+
+
+# idea
+
+/.idea
+*/.idea
+*.iml
+.DS_Store
+.idea/*
