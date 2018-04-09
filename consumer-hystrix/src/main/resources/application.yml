@@ -1,0 +1,12 @@
+server:
+  port: 8105
+spring:
+  application:
+    name: Hystrix-consumer
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
+#    healthcheck:
+#      enabled: true 版本变化？
+

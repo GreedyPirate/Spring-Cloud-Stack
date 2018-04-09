@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      discovery:
+        service-id: config-centerer-git
+        enabled: true
+      profile: test
+      fail-fast: true
+      uri: http://localhost:8200
+
+server:
+  port: 8104
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/

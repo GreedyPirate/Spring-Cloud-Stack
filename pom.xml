@@ -13,5 +13,10 @@
         <module>eureka-server</module>
         <module>consumer-client</module>
         <module>producer-client</module>
+        <module>config-center</module>
+        <module>config-client</module>
+        <module>consumer-feign</module>
+        <module>consumer-hystrix</module>
+        <module>consumer-ribbon</module>
     </modules>
 </project>

@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: config-centerer-git
+  cloud:
+    config:
+      server:
+        git:
+          uri: http://gitlab.corp.songguo7.com:8360/yangjie/spring-cloud-config-center.git
+          username: yangjie@songguo7.com
+          password: yj0817423
+          default-label: master
+server:
+  port: 8200
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
