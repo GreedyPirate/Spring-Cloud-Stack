@@ -13,4 +13,4 @@ eureka:
     enable-self-preservation: false #关闭自我保护模式
     eviction-interval-timer-in-ms: 30000 #清理无效节点的时间间隔
   instance:
-    prefer-ip-address: #显示真实ip地址
+    prefer-ip-address: true #显示真实ip地址
