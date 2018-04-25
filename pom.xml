@@ -20,4 +20,11 @@
         <module>consumer-ribbon</module>
         <module>gateway</module>
     </modules>
+    <dependencies>
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-server</artifactId>
+            <version>1.5.7</version>
+        </dependency>
+    </dependencies>
 </project>
