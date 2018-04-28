@@ -3,10 +3,34 @@ server:
 spring:
   application:
     name: eureka-consumer-ribbon
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true
+
+# ribbon retry
+eureka-consumer-ribbon:
+  ConnectTimeout: 250
+  ReadTimeout: 1000
+  OkToRetryOnAllOperations: true
+  MaxAutoRetriesNextServer: 2
+  MaxAutoRetries: 1
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+
+
+# regist center
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8000/eureka/
-#    healthcheck:
-#      enabled: true 版本变化？
+      defaultZone: http://localhost:8000/eureka/,http://localhost:8001/eureka/
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 10 # 每10s发送心跳包
+    lease-expiration-duration-in-seconds: 30 #30到期
 

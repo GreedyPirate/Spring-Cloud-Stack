@@ -1,5 +1,6 @@
 package com.ttyc.consumerribbon.controller;
 
+import com.netflix.discovery.DiscoveryClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,4 +19,3 @@ public class RibbonClientController {
         return result;
     }
 }
-        // java.lang.IllegalStateException: No instances available for eureka-server

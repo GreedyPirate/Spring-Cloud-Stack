@@ -36,33 +36,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-       <dependency>
-            <groupId>de.codecentric</groupId>
-            <artifactId>spring-boot-admin-server</artifactId>
-            <version>1.5.7</version>
-		   <exclusions>
-			   <!-- 排除依赖 因为该版本比较旧，出现过NoSuchMethod的异常-->
-			   <exclusion>
-				   <groupId>com.netflix.servo</groupId>
-				   <artifactId>servo-core</artifactId>
-			   </exclusion>
-		   </exclusions>
-        </dependency>
-
-		<dependency>
-			<groupId>com.netflix.servo</groupId>
-			<artifactId>servo-core</artifactId>
-			<version>0.12.11</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>de.codecentric</groupId>
-			<artifactId>spring-boot-admin-server-ui</artifactId>
-			<version>1.5.7</version>
-		</dependency>
 	</dependencies>
 
 	<dependencyManagement>
