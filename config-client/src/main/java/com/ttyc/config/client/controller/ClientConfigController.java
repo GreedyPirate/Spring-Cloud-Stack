@@ -13,6 +13,9 @@ public class ClientConfigController {
     @Autowired
     Environment environment;
 
+    @Value("${info.profile}")
+    String name;
+
     @GetMapping("config")
     public String getMode(){
         System.out.println(environment.getProperty("info.profile"));

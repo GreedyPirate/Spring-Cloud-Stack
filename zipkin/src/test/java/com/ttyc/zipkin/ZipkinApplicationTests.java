@@ -1,4 +1,4 @@
-package com.ttyc.config.center;
+package com.ttyc.zipkin;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ConfigCenterApplicationTests {
+public class ZipkinApplicationTests {
 
 	@Test
 	public void contextLoads() {

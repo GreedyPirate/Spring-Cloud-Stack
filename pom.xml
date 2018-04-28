@@ -13,12 +13,15 @@
         <module>eureka-server</module>
         <module>consumer-client</module>
         <module>producer-client</module>
-        <module>config-center</module>
+        <module>config-base</module>
         <module>config-client</module>
         <module>consumer-feign</module>
         <module>consumer-hystrix</module>
         <module>consumer-ribbon</module>
         <module>gateway</module>
+        <module>zipkin</module>
+        <module>sleuth-producer</module>
+        <module>sleuth-consumer</module>
     </modules>
     <dependencies>
         <dependency>

@@ -4,10 +4,10 @@ spring:
   cloud:
     config:
       discovery:
-        service-id: config-centerer-git
+        service-id: config-center-git
         enabled: true
       profile: test
-      fail-fast: true
+      #fail-fast: true
       uri: http://localhost:8200
 
 server:
@@ -16,4 +16,4 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8000/eureka/
+      defaultZone: http://localhost:8000/eureka/,http://peer1:8001/eureka/
