@@ -6,9 +6,15 @@
 
     <groupId>com.ttyc</groupId>
     <artifactId>aicar</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <description>aicar parent project</description>
-
+    <packaging>pom</packaging>
+    <developers>
+        <developer>
+            <name>杨杰</name>
+            <email>yangjie@songguo7.com</email>
+        </developer>
+    </developers>
     <modules>
         <module>eureka-server</module>
         <module>consumer-client</module>
@@ -19,15 +25,28 @@
         <module>consumer-hystrix</module>
         <module>consumer-ribbon</module>
         <module>gateway</module>
-        <module>zipkin</module>
         <module>sleuth-producer</module>
         <module>sleuth-consumer</module>
+        <module>mq-user</module>
     </modules>
-    <dependencies>
-        <dependency>
-            <groupId>de.codecentric</groupId>
-            <artifactId>spring-boot-admin-starter-server</artifactId>
-            <version>1.5.7</version>
-        </dependency>
-    </dependencies>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>Finchley.RC1</spring-cloud.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
 </project>

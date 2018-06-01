@@ -1,5 +1,7 @@
 package com.ttyc.producer.client.controller;
 
+import com.dianping.cat.Cat;
+import com.dianping.cat.message.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,18 +23,23 @@ public class ProducerController {
     DiscoveryClient discoveryClient;
 
     @GetMapping("/producer/hi")
-    public String clientInfo(){
-        System.out.println("be consumed");
-        /*try {
-            TimeUnit.SECONDS.sleep(5);
-        } catch (InterruptedException e) {
+    public String clientInfo() {
+        Transaction transaction = Cat.newTransaction("URL", "producer");
+        try {
+            System.out.println("be consumed");
+            transaction.setStatus("0");
+            return discoveryClient.getServices().toString();
+        } catch (Exception e) {
+            transaction.setStatus(e);
             e.printStackTrace();
-        }*/
-        return discoveryClient.getServices().toString();
+        } finally {
+            transaction.complete();
+        }
+        return "";
     }
 
-    @PostMapping(value = "producer/upload",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public Boolean upload(@RequestPart(value = "file")MultipartFile file){
+    @PostMapping(value = "producer/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public Boolean upload(@RequestPart(value = "file") MultipartFile file) {
         logger.debug(file.getOriginalFilename());
         System.out.println(file.getName());
         return Boolean.TRUE;
