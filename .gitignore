@@ -19,3 +19,4 @@ mvnw
 .DS_Store
 .idea/*
 */target
+/consumer-feign/src/test/java/com/ttyc/consumer/feign/EnableFeignClientsTests.java
