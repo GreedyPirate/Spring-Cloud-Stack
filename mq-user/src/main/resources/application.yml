@@ -7,6 +7,9 @@ spring:
     username: root
     password: 0817
     url: jdbc:mysql://localhost:3306/aicar?characterEncoding=utf-8&connectTimeout=2000&socketTimeout=2000&statementInterceptors=brave.mysql.TracingStatementInterceptor&zipkinServiceName=userMysqlTrace
+    driver-class-name: com.mysql.jdbc.Driver
+  profiles:
+    include: weChat
 
 
 wx:

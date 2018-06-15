@@ -18,6 +18,6 @@ public class HystrixService {
     }
 
     public String failMethod(){
-        return "error";
+        return "exception";
     }
 }

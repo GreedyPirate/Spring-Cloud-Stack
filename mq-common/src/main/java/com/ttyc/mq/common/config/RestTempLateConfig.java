@@ -89,7 +89,7 @@ public class RestTempLateConfig {
                 logger.debug("Response" + clienthttpresponse.getStatusText());
 
                 if (clienthttpresponse.getStatusCode() == HttpStatus.FORBIDDEN) {
-                    logger.debug("Call returned a error 403 forbidden resposne ");
+                    logger.debug("Call returned a exception 403 forbidden resposne ");
                     return true;
                 }
             }
