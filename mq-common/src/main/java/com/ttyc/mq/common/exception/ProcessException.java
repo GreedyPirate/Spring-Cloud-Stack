@@ -1,22 +1,21 @@
 package com.ttyc.mq.common.exception;
 
-import com.ttyc.mq.user.error.ErrorCode;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 public class ProcessException extends RuntimeException{
     private static final long serialVersionUID = -1362544102815925841L;
-    private ErrorCode errorCode;
+    private ExceptionEnums errorCode;
 
-    public ProcessException(ErrorCode errorCode) {
+    public ProcessException(ExceptionEnums errorCode) {
         this.errorCode = errorCode;
     }
 
-    public ErrorCode getErrorCode() {
+    public ExceptionEnums getErrorCode() {
         return errorCode;
     }
 
-    public void setErrorCode(ErrorCode errorCode) {
+    public void setErrorCode(ExceptionEnums errorCode) {
 
         this.errorCode = errorCode;
     }

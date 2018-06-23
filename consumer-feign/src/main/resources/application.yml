@@ -9,4 +9,6 @@ eureka:
       defaultZone: http://localhost:8000/eureka/,http://peer1:8001/eureka/
 #    healthcheck:
 #      enabled: true 版本变化？
-
+feign:
+  httpclient:
+    enable: true

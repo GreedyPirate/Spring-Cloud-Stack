@@ -5,13 +5,17 @@ spring:
   profiles: master
   application:
     name: eureka-master
+  security:
+    user:
+      name: root
+      password: 0817
 eureka:
   instance:
     hostname: peer1
     prefer-ip-address: true
   client:
     serviceUrl:
-      defaultZone: http://peer2:8001/eureka/
+      defaultZone: http://root:0817@peer2:8001/eureka/
 
 ---
 server:
@@ -20,10 +24,14 @@ spring:
   profiles: slave
   application:
     name: eureka-slave
+  security:
+    user:
+      name: root
+      password: 0817
 eureka:
   instance:
     hostname: peer2
     prefer-ip-address: true
   client:
     serviceUrl:
-      defaultZone: http://peer1:8000/eureka/
+      defaultZone: http://root:0817@peer1:8000/eureka/

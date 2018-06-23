@@ -17,6 +17,8 @@ public class UserController {
     @Autowired
     private WxServiceClient wxServiceClient;
 
+
+
     @PostMapping("/wxLogin")
     public LoginResponse wxLogin(LoginParam loginParam){
         return wxServiceClient.login(loginParam);
