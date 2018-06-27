@@ -1,6 +1,8 @@
 package com.ttyc.producer.client.controller;
 
-import com.ttyc.producer.client.User;
+import com.ttyc.mq.common.exception.BaseError;
+import com.ttyc.mq.common.exception.ServiceException;
+import com.ttyc.producer.client.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,6 @@ public class ProducerController {
 
     @PostMapping(value = "user")
     public String vaild(@Valid User user){
-        return "vaild";
+        throw new ServiceException(BaseError.INTERNAL_SERVER_ERROR);
     }
 }

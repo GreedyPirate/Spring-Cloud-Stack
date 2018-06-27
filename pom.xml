@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ttyc</groupId>
-    <artifactId>aicar</artifactId>
+    <artifactId>aicar-parent</artifactId>
     <version>1.0.0</version>
     <description>aicar parent project</description>
     <packaging>pom</packaging>
@@ -21,6 +21,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.0.3.RELEASE</version>
+        <relativePath/>
     </parent>
 
     <modules>

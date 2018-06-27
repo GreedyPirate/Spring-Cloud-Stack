@@ -21,16 +21,16 @@ public enum  BaseError implements ExceptionEnums{
 
     @Override
     public Integer getModule() {
-        return null;
+        return module;
     }
 
     @Override
     public Integer getCode() {
-        return null;
+        return this.code;
     }
 
     @Override
     public String getMessage() {
-        return null;
+        return this.message;
     }
 }
