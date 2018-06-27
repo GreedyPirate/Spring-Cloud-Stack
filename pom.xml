@@ -12,9 +12,17 @@
     <developers>
         <developer>
             <name>杨杰</name>
+            <organization>松果</organization>
+            <organizationUrl>https://songguo7.com/</organizationUrl>
             <email>yangjie@songguo7.com</email>
         </developer>
     </developers>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.3.RELEASE</version>
+    </parent>
+
     <modules>
         <module>eureka-server</module>
         <module>consumer-client</module>
@@ -25,18 +33,36 @@
         <module>consumer-hystrix</module>
         <module>consumer-ribbon</module>
         <module>gateway</module>
-        <module>sleuth-producer</module>
-        <module>sleuth-consumer</module>
+        <module>sleuth-feign-consumer</module>
+        <module>sleuth-feign-producer</module>
         <module>mq-user</module>
+        <module>mq-common</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <spring-cloud.version>Finchley.RC1</spring-cloud.version>
+        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
+        <mysql.version>5.1.46</mysql.version>
+        <lombok.version>1.16.20</lombok.version>
+        <httpclient.util.version>1.0</httpclient.util.version>
+        <fastjson.version>1.2.47</fastjson.version>
+        <druid.version>1.1.9</druid.version>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.arronlong</groupId>
+            <artifactId>httpclientutil</artifactId>
+            <version>${httpclient.util.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+    </dependencies>
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -46,7 +72,32 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 </project>
