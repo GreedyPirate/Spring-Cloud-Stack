@@ -8,14 +8,14 @@ spring:
   security:
     user:
       name: root
-      password: 0817
+      password: root
 eureka:
   instance:
     hostname: peer1
     prefer-ip-address: true
   client:
     serviceUrl:
-      defaultZone: http://root:0817@peer2:8001/eureka/
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@peer2:8001/eureka/
     fetch-registry: false
     register-with-eureka: false
 
@@ -29,13 +29,13 @@ spring:
   security:
     user:
       name: root
-      password: 0817
+      password: root
 eureka:
   instance:
     hostname: peer2
     prefer-ip-address: true
   client:
     serviceUrl:
-      defaultZone: http://root:0817@peer1:8000/eureka/
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@peer1:8000/eureka/
     fetch-registry: false
     register-with-eureka: false

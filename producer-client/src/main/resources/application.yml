@@ -1,7 +1,7 @@
 eureka:
   client:
     service-url:
-      defaultZone: http://peer1:8000/eureka/,http://peer2:8001/eureka/
+      defaultZone: http://root:root@peer1:8000/eureka/,http://root:root@peer2:8001/eureka/
 spring:
   application:
     name: eureka-producer
@@ -17,5 +17,3 @@ server:
   port: 8108
 spring:
   profiles: serviceB
-
-

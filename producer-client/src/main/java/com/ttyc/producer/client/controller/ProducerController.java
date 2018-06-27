@@ -1,5 +1,6 @@
 package com.ttyc.producer.client.controller;
 
+import com.ttyc.producer.client.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.validation.Valid;
 
 @RestController
 public class ProducerController {
@@ -22,5 +25,10 @@ public class ProducerController {
         logger.debug(file.getOriginalFilename());
         System.out.println(file.getName());
         return Boolean.TRUE;
+    }
+
+    @PostMapping(value = "user")
+    public String vaild(@Valid User user){
+        return "vaild";
     }
 }
