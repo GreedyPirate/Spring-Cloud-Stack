@@ -16,6 +16,8 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://root:0817@peer2:8001/eureka/
+    fetch-registry: false
+    register-with-eureka: false
 
 ---
 server:
@@ -35,3 +37,5 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://root:0817@peer1:8000/eureka/
+    fetch-registry: false
+    register-with-eureka: false
