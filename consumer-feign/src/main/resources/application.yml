@@ -1,5 +1,5 @@
 server:
-  port: 8103
+  port: 8897
 spring:
   application:
     name: eureka-consumer-feign
@@ -12,3 +12,4 @@ eureka:
 feign:
   httpclient:
     enable: true
+debug: true

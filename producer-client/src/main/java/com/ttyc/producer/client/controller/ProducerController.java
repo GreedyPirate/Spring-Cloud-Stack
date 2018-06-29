@@ -22,6 +22,11 @@ public class ProducerController {
     @Autowired
     DiscoveryClient discoveryClient;
 
+    @PostMapping(value = "status")
+    public String health(){
+        return "OK";
+    }
+
     @PostMapping(value = "producer/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public Boolean upload(@RequestPart(value = "file") MultipartFile file) {
         logger.debug(file.getOriginalFilename());
