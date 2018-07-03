@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    gateway:
+      enabled: true # 默认开启的，可以关闭
+      routes:
+      - id: after_route
+      uri: http://localhost:8100
+      predicates:
+      - After=Tue Jul 03 14:00:13 CST 2018
+      - id: before_route
+      uri: http://localhost:8108
+      predicates:
+      - Before=Tue Jul 03 20:00:13 CST 2018

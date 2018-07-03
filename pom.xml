@@ -33,7 +33,8 @@
         <module>consumer-feign</module>
         <module>consumer-hystrix</module>
         <module>consumer-ribbon</module>
-        <module>gateway</module>
+        <module>zuul-gateway</module>
+        <module>spring-gateway</module>
         <module>sleuth-feign-consumer</module>
         <module>sleuth-feign-producer</module>
         <module>mq-user</module>

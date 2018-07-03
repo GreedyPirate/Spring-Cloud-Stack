@@ -21,8 +21,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 //@DirtiesContext
 public class ConsumerFeignApplicationTests {
-	@Autowired
-	private FeignContext feignContext;
 	private ApplicationContextRunner contextRunner = new ApplicationContextRunner()
 			.withConfiguration(AutoConfigurations.of(RibbonEurekaAutoConfiguration.class));
 
@@ -32,10 +30,5 @@ public class ConsumerFeignApplicationTests {
 		this.contextRunner.run(context -> {
 			assertThat(context).hasSingleBean(ServerList.class);
 		});
-	}
-	@Test
-	public void testServerList() {
-		ServerList ribbonServerList = this.feignContext.getInstance("ribbonServerList", ServerList.class);
-		Assert.assertNotNull(ribbonServerList);
 	}
 }
