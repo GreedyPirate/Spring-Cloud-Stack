@@ -5,7 +5,6 @@ eureka:
 spring:
   application:
     name: eureka-producer
-debug: true
 
 ---
 server:

@@ -4,14 +4,16 @@ import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
 import com.sun.xml.internal.ws.client.ResponseContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class RequestFilter extends ZuulFilter {
-    @Value("${crossdomain.hosts}")
-    private String crossDomainHosts;
+    private Logger log = LoggerFactory.getLogger(RequestFilter.class);
 
     @Override
     public String filterType() {
@@ -32,14 +34,21 @@ public class RequestFilter extends ZuulFilter {
     public Object run() throws ZuulException {
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest request = ctx.getRequest();
-
-        String token = request.getHeader("");
-        if (token != null) {
+        log.info(String.format("%s >>> %s", request.getMethod(), request.getRequestURL().toString()));
+        Object accessToken = request.getParameter("token");
+        if(accessToken == null) {
+            log.warn("token is empty");
             ctx.setSendZuulResponse(false);
             ctx.setResponseStatusCode(401);
-//            ctx.setResponseBody();
+            try {
+                ctx.getResponse().getWriter().write("token is empty");
+            }catch (Exception e){}
+
             return null;
         }
+        log.info("ok");
+        return null;
+
 
         // 支持跨域
         /*supportCrossDomain(request, response);
@@ -48,7 +57,6 @@ public class RequestFilter extends ZuulFilter {
         if (url.contains("/api/")) {
             return validServiceToken(httpRequest);
         }*/
-        return null;
     }
 
     /**
@@ -57,6 +65,7 @@ public class RequestFilter extends ZuulFilter {
      * @param response
      */
     private void supportCrossDomain(HttpServletRequest request, HttpServletResponse response) {
+        String crossDomainHosts = "";
         String orginUrl = request.getHeader("Origin");
         if (orginUrl != null && crossDomainHosts.contains(orginUrl)) {
             response.addHeader("Access-Control-Allow-Origin", orginUrl);

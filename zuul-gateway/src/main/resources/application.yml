@@ -1,13 +1,15 @@
-spring:
-  application:
-    name: gateway
 server:
   port: 8106
+spring:
+  application:
+    name: zuul-gateway
+
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8000/eureka/,http://peer1:8001/eureka/
+
 zuul:
   servlet-path: /zuul
-  strip-prefix: true #去掉前缀，http://xxx:8080/user/type ==> http://xxx:8080/type
+  #strip-prefix: true #去掉前缀，http://xxx:8080/user/type ==> http://xxx:8080/type
   # ignored-services: 不适用zuul代理的服务，但是配置了的还是会生效

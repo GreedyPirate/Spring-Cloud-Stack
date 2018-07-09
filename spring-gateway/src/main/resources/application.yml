@@ -1,13 +1,21 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:8000/eureka/,http://peer2:8001/eureka/
 spring:
+  application:
+    name: spring-cloud-gateway
+  profiles:
+    active: use
   cloud:
     gateway:
-      enabled: true # 默认开启的，可以关闭
       routes:
-      - id: after_route
-      uri: http://localhost:8100
-      predicates:
-      - After=Tue Jul 03 14:00:13 CST 2018
-      - id: before_route
-      uri: http://localhost:8108
-      predicates:
-      - Before=Tue Jul 03 20:00:13 CST 2018
+      - id: path_route #路径匹配
+        uri: http://localhost:8108
+        predicates:
+        - Path=/eureka-producer
+server:
+  port: 8109
+
+
+

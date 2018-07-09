@@ -12,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.runner.ApplicationContextRunner;
 import org.springframework.cloud.netflix.ribbon.eureka.RibbonEurekaAutoConfiguration;
 import org.springframework.cloud.openfeign.FeignContext;
+import org.springframework.context.ApplicationContext;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -19,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-//@DirtiesContext
+@DirtiesContext
 public class ConsumerFeignApplicationTests {
 	private ApplicationContextRunner contextRunner = new ApplicationContextRunner()
 			.withConfiguration(AutoConfigurations.of(RibbonEurekaAutoConfiguration.class));
@@ -30,5 +31,23 @@ public class ConsumerFeignApplicationTests {
 		this.contextRunner.run(context -> {
 			assertThat(context).hasSingleBean(ServerList.class);
 		});
+	}
+
+	@Autowired
+	private ApplicationContext context;
+
+	@Test
+	public void testBeanCreation() {
+		ServerList serverList = this.context.getBean(ServerList.class);
+		Assert.assertNotNull(serverList);
+	}
+
+	@Autowired
+	private FeignContext feignContext;
+
+	@Test
+	public void testServerList(){
+		ServerList serverList = feignContext.getInstance("foo", ServerList.class);
+		Assert.assertNotNull(serverList);
 	}
 }

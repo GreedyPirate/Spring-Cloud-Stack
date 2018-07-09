@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,6 +22,12 @@ public class ProducerController {
 
     @Autowired
     DiscoveryClient discoveryClient;
+
+    @GetMapping("producer/hi")
+    public String hi(){
+        System.out.println("execute");
+        return "hi, consumer";
+    }
 
     @PostMapping(value = "status")
     public String health(){
