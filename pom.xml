@@ -39,6 +39,8 @@
         <module>sleuth-feign-producer</module>
         <module>mq-user</module>
         <module>mq-common</module>
+        <module>pom-test</module>
+        <module>spring-security</module>
     </modules>
 
     <properties>
