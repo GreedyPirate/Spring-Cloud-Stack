@@ -10,16 +10,15 @@ package com.ttyc.mq.common.exception;
 public enum  BaseError implements ExceptionEnums{
     INTERNAL_SERVER_ERROR(500, "服务器内部错误");
 
-    private Integer module = 0;
+    private final Integer module = 0;
     private Integer code;
     private String message;
 
     BaseError(Integer code, String message) {
-        this.code = code;
+        this.code = this.module + code;
         this.message = message;
     }
 
-    @Override
     public Integer getModule() {
         return module;
     }
