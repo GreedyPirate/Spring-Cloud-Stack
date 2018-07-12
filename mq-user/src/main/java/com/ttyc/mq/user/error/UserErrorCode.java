@@ -16,11 +16,6 @@ public enum UserErrorCode implements ExceptionEnums{
     }
 
     @Override
-    public Integer getModule() {
-        return this.module;
-    }
-
-    @Override
     public Integer getCode() {
         return this.module*100 + this.code;
     }
