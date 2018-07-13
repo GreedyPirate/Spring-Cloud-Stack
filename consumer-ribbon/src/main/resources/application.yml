@@ -1,5 +1,7 @@
 server:
   port: 8102
+  servlet:
+    context-path: /consumer-ribbon
 spring:
   application:
     name: eureka-consumer-ribbon
@@ -28,7 +30,7 @@ hystrix:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8000/eureka/,http://localhost:8001/eureka/
+      defaultZone: http://localhost:8000/eureka/
   instance:
     prefer-ip-address: true
     lease-renewal-interval-in-seconds: 10 # 每10s发送心跳包
