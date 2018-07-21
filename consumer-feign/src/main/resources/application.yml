@@ -1,18 +1,19 @@
 server:
   port: 8897
-  servlet:
-    context-path: /consumer-api
 spring:
   application:
-    name: eureka-consumer-feign
+    name: consumer-api
 
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8000/eureka/
+      defaultZone: http://localhost:8000/eureka/,http://localhost:8001/eureka/
 #    healthcheck:
 #      enabled: true 版本变化？
 feign:
   httpclient:
     enable: true
-debug: true
+
+swagger:
+  base-package: com.ttyc.consumer.feign
+  enabled: true

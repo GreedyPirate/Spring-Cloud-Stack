@@ -1,4 +1,4 @@
-package com.ttyc.consumerribbon;
+package com.ttyc.consumer.ribbon;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package com.ttyc.consumerribbon;
+package com.ttyc.consumer.ribbon;
 
 import com.spring4all.swagger.EnableSwagger2Doc;
 import org.springframework.boot.SpringApplication;

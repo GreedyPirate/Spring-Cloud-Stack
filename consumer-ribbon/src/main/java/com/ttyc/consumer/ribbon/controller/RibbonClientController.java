@@ -1,4 +1,4 @@
-package com.ttyc.consumerribbon.controller;
+package com.ttyc.consumer.ribbon.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -21,4 +21,11 @@ public class RibbonClientController {
         System.out.println(result);
         return result;
     }
+
+    @ApiOperation("存活判断")
+    @GetMapping("alive")
+    public String keepAlive(){
+        return "OK";
+    }
+
 }

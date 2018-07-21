@@ -23,16 +23,16 @@ public class SwaggerConfig {
         @Override
         public List<SwaggerResource> get() {
             List resources = new ArrayList<>();
-            resources.add(swaggerResource("eureka-consumer-feign", "/consumer-api/v2/api-docs", "2.0"));
-            resources.add(swaggerResource("eureka-consumer-ribbon", "/consumer-ribbon/v2/api-docs", "2.0"));
+            resources.add(swaggerResource("swagger-consumer-feign", "/consumer-api/v2/api-docs"));
+            resources.add(swaggerResource("swagger-consumer-ribbon", "/consumer-ribbon/v2/api-docs"));
             return resources;
         }
 
-        private SwaggerResource swaggerResource(String name, String location, String version) {
+        private SwaggerResource swaggerResource(String name, String location) {
             SwaggerResource swaggerResource = new SwaggerResource();
             swaggerResource.setName(name);
             swaggerResource.setLocation(location);
-            swaggerResource.setSwaggerVersion(version);
+            swaggerResource.setSwaggerVersion("2.0");
             return swaggerResource;
         }
     }

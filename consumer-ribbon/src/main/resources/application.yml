@@ -1,10 +1,8 @@
 server:
   port: 8102
-  servlet:
-    context-path: /consumer-ribbon
 spring:
   application:
-    name: eureka-consumer-ribbon
+    name: consumer-ribbon
   cloud:
     loadbalancer:
       retry:
@@ -34,5 +32,9 @@ eureka:
   instance:
     prefer-ip-address: true
     lease-renewal-interval-in-seconds: 10 # 每10s发送心跳包
-    lease-expiration-duration-in-seconds: 30 #30到期
+    lease-expiration-duration-in-seconds: 30 #过期时间
+swagger:
+  base-package: com.ttyc.consumer.ribbon
+  enabled: true
+
 

@@ -34,4 +34,10 @@ public class FeignController {
     public Boolean uploadFile(@RequestPart("file") MultipartFile file){
         return this.producerClient.upload(file);
     }
+
+    @ApiOperation("存活判断")
+    @GetMapping("alive")
+    public String keepAlive(){
+        return "OK";
+    }
 }
