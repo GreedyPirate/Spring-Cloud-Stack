@@ -13,6 +13,6 @@ public interface ProducerClient {
     @GetMapping("producer/hi")
     public String callProducer();
 
-    @PostMapping(value = "producer/upload",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PostMapping(value = "producer/upload",consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
     public Boolean upload(MultipartFile file);
 }
