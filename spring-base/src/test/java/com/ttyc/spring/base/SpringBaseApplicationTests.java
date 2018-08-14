@@ -17,7 +17,10 @@ public class SpringBaseApplicationTests {
 	@Test
 	public void contextLoads() {
 		Boolean regist = userService.regist();
-
 	}
 
+	@Test
+	public void testCommit(){
+		userService.commit();
+	}
 }

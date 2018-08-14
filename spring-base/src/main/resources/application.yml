@@ -5,3 +5,13 @@ spring:
     url: jdbc:mysql://localhost:3306/jay
     username: root
     password: '0817'
+  mvc:
+    message-codes-resolver-format: PREFIX_ERROR_CODE
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    cache-enabled: false
+    map-underscore-to-camel-case: true
+  type-aliases-package: com.ttyc.spring.base.model
+
+

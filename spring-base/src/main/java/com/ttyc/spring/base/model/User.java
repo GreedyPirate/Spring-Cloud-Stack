@@ -4,13 +4,13 @@ import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.lang.annotation.Target;
 
-@Table(name = "user")
-@Entity
 @Data
 @Builder
+@Entity
+@Table(name="user")
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

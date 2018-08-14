@@ -9,12 +9,12 @@ import org.springframework.util.StringUtils;
 import java.util.List;
 import java.util.Set;
 
-@Component
+//@Component
 public class BootstrapArgs {
 
     @Autowired
     public BootstrapArgs(ApplicationArguments args) {
-        boolean myargs = args.containsOption("myargs");
+        boolean myargs = args.containsOption("user");
         Assert.state(myargs, "无法获取自定义参数");
         List<String> nonOptionArgs = args.getNonOptionArgs();
         System.out.println("nonOptionArgs : " + StringUtils.collectionToCommaDelimitedString(nonOptionArgs));

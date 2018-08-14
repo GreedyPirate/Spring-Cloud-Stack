@@ -1,4 +1,4 @@
-package com.ttyc.doc.extend;
+package com.ttyc.doc.extend.lifecycle;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,4 +10,6 @@ public class InitConfig {
     public InitBeanExtend initBeanExtend(){
         return new InitBeanExtend();
     }
+
+
 }

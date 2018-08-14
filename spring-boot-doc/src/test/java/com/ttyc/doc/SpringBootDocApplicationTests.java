@@ -1,6 +1,6 @@
 package com.ttyc.doc;
 
-import com.ttyc.doc.extend.InitBeanExtend;
+import com.ttyc.doc.extend.lifecycle.InitBeanExtend;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
