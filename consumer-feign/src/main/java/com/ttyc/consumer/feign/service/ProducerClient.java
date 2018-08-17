@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
 
-@FeignClient(value = "eureka-producer", configuration = {MultiPartConfig.class})
+@FeignClient(value = "eureka-producer", decode404=true, configuration = {MultiPartConfig.class})
 public interface ProducerClient {
     @GetMapping("producer/hi")
     public String callProducer();

@@ -10,12 +10,24 @@ spring:
   cloud:
     gateway:
       routes:
-      - id: path_route #路径匹配
-        uri: http://localhost:8108
+      - id: consumer #路径匹配
+        uri: http://localhost:8897
         predicates:
-        - Path=/eureka-producer
+        - Path=/consumer-api/**
+        filters:
+        - RewritePath=/consumer-api/(?<segment>.*), /$\{segment}
+      - id: producer
+        uri: lb://eureka-producer
+        predicates:
+        - Path=/eureka-producer/**
+        filters:
+        - RewritePath=/eureka-producer/(?<segment>.*), /$\{segment}
+  zipkin:
+    sender:
+      type: web
+    base-url: http://localhost:9411/
+  sleuth:
+      sampler:
+        probability: 1.0
 server:
   port: 8109
-
-
-

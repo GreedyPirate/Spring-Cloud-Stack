@@ -14,7 +14,11 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.util.Collection;
+import java.util.Enumeration;
 
 @RestController
 public class ProducerController {
@@ -24,7 +28,16 @@ public class ProducerController {
     DiscoveryClient discoveryClient;
 
     @GetMapping("producer/hi")
-    public String hi(){
+    public String hi(HttpServletRequest request, HttpServletResponse response){
+        Enumeration<String> headerNames = request.getHeaderNames();
+        while (headerNames.hasMoreElements()){
+            String header = headerNames.nextElement();
+            System.out.println(request.getHeader(header));
+        }
+        Collection<String> respHeaders = response.getHeaderNames();
+        for (String header:respHeaders){
+            System.out.println(response.getHeader(header));
+        }
         System.out.println("execute");
         return "hi, consumer";
     }

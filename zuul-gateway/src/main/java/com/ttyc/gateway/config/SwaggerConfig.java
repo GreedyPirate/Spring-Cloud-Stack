@@ -22,7 +22,7 @@ public class SwaggerConfig {
     class DocumentationConfig implements SwaggerResourcesProvider {
         @Override
         public List<SwaggerResource> get() {
-            List resources = new ArrayList<>();
+            List<SwaggerResource> resources = new ArrayList<>();
             resources.add(swaggerResource("swagger-consumer-feign", "/consumer-api/v2/api-docs"));
             resources.add(swaggerResource("swagger-consumer-ribbon", "/consumer-ribbon/v2/api-docs"));
             return resources;

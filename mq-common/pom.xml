@@ -12,9 +12,9 @@
 	<description>mq-common</description>
 
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.2.RELEASE</version>
+		<groupId>com.ttyc</groupId>
+		<artifactId>aicar-parent</artifactId>
+		<version>1.0.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -36,12 +36,6 @@
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
-			<version>4.5.5</version>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>com.google.guava</groupId>
