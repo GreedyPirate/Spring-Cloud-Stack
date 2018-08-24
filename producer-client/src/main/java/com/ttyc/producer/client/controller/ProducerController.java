@@ -32,7 +32,8 @@ public class ProducerController {
         Enumeration<String> headerNames = request.getHeaderNames();
         while (headerNames.hasMoreElements()){
             String header = headerNames.nextElement();
-            System.out.println(request.getHeader(header));
+            String val = request.getHeader(header);
+            System.out.println(header + "==>" + val);
         }
         Collection<String> respHeaders = response.getHeaderNames();
         for (String header:respHeaders){

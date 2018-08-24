@@ -1,4 +1,11 @@
 package com.ttyc.jdk.assist;
 
-public class Flexable {
+
+import java.lang.annotation.*;
+
+@Documented
+@Inherited
+@Target({ElementType.TYPE,ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Flexable {
 }
