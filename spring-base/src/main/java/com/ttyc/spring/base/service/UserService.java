@@ -5,6 +5,7 @@ import com.ttyc.spring.base.error.ServiceException;
 import com.ttyc.spring.base.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionSynchronizationAdapter;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
@@ -38,7 +39,7 @@ public class UserService {
         return Boolean.FALSE;
     }
 
-    @Transactional
+    @Transactional(propagation = Propagation.REQUIRED)
     public Boolean commit() {
         try {
             User jack = User.builder().name("mike").phone("120").build();
@@ -56,4 +57,5 @@ public class UserService {
             throw new ServiceException("wrong");
         }
     }
+
 }

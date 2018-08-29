@@ -1,0 +1,23 @@
+server:
+  port: 8300
+spring:
+  application:
+    name: consul-producer
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      retry:
+        max-attempts: 3
+        initial-interval: 1000
+        max-interval: 2000
+        multiplier: 1.1
+      discovery:
+        health-check-interval: 10s
+        health-check-path: /actuator/health
+        health-check-timeout: 5s
+        instance-id: ${spring.application.name}
+    loadbalancer:
+      retry:
+        enabled: true
+

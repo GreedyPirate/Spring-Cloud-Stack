@@ -1,0 +1,14 @@
+server:
+  port: 8112
+  servlet:
+    context-path: /side-car
+spring:
+  application:
+    name: sidecar-php
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/,http://localhost:8001/eureka/
+sidecar:
+  port: 8079
+  health-uri: http://localhost:8079/
