@@ -1,14 +1,12 @@
 package com.ttyc.doc;
 
-import com.ttyc.doc.extend.event.customer.*;
-import com.ttyc.doc.extend.runner.RunnerBean;
+import com.ttyc.doc.extend.event.customer.SpringBootListener;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-
-import java.util.ArrayList;
+import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
+@EnableCaching
 public class SpringBootDocApplication {
 
 	public static void main(String[] args) {

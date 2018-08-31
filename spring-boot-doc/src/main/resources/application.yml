@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/jay
+    username: root
+    password: '0817'
+server:
+  port: 8113
+logging:
+  level: error

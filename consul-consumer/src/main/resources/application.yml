@@ -17,6 +17,7 @@ spring:
         health-check-path: /actuator/health
         health-check-timeout: 5s
         service-name: ${spring.application.name}
+        health-check-tls-skip-verify: true
     loadbalancer:
       retry:
         enabled: true

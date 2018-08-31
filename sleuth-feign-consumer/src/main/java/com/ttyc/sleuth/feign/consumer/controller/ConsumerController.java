@@ -1,6 +1,6 @@
 package com.ttyc.sleuth.feign.consumer.controller;
 
-import com.ttyc.sleuth.feign.consumer.Service.ThirdCallService;
+import com.ttyc.sleuth.feign.consumer.service.ThirdCallService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -43,6 +43,8 @@
         <module>spring-security</module>
         <module>spring-base</module>
         <module>spring-boot-doc</module>
+        <module>consul-consumer</module>
+        <module>consul-producer</module>
     </modules>
 
     <properties>

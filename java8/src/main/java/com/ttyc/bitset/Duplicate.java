@@ -1,30 +1,22 @@
 package com.ttyc.bitset;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Duplicate {
 
-    private static List<Invoice> invoices = new ArrayList<>();
+    List<Invoice> invoices = new ArrayList<>();
 
-    static {
-        for (int i = 0; i < 3000; i++) {
-            Invoice invoice = new Invoice();
-            invoice.setCode(randomStr());
-            invoice.setNumber(randomStr());
-            invoices.add(invoice);
-        }
-    }
-
-    public static String randomStr(){
-        StringBuilder result = new StringBuilder();
-        String sources = "0123456789";
-        Random rand = new Random();
-        for (int j = 0; j < 6; j++) {
-            result.append(sources.charAt(rand.nextInt(9)) + "");
-        }
-        return result.toString();
+    @Before
+    public void init(){
+        invoices.add(new Invoice("100000","200000"));
+        invoices.add(new Invoice("100000","200000"));
+        invoices.add(new Invoice("100001","200000"));
+        invoices.add(new Invoice("100000","200001"));
+        invoices.add(new Invoice("100001","200001"));
     }
 
     @Test
@@ -36,15 +28,12 @@ public class Duplicate {
 
         Set<Integer> set = new HashSet<>(list);
         set.forEach(System.out::println);
-
-        Set<Invoice> invoiceSet = new HashSet<>(invoices);
-        System.out.println(invoiceSet.size());
-        invoiceSet.forEach(System.out::println);
     }
 
     @Test
-    public void testBitset(){
-        BitSet set = new BitSet();
+    public void testField() {
+        List<Invoice> ret = invoices.stream().collect(Collectors.collectingAndThen(Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(o -> o.getCode() + ";" + o.getNumber()))), ArrayList::new));
+        ret.forEach(System.out::println);
     }
 
 }
