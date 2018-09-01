@@ -18,7 +18,7 @@ spring:
         health-check-timeout: 5s
         instance-id: ${spring.application.name}
         health-check-tls-skip-verify: true
+        service-name: ${spring.application.name}
     loadbalancer:
       retry:
         enabled: true
-
