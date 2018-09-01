@@ -1,2 +1,7 @@
 server:
   port: 8114
+spring:
+  cloud:
+    consul:
+      host: 10.9.181.34
+      port: 8500
