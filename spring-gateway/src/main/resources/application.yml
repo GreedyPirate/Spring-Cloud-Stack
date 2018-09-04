@@ -19,9 +19,7 @@ spring:
       - id: producer
         uri: lb://eureka-producer
         predicates:
-        - Path=/eureka-producer/**
-        filters:
-        - RewritePath=/eureka-producer/(?<segment>.*), /$\{segment}
+        - Path=/eureka-producer/{segment}
   zipkin:
     sender:
       type: web
