@@ -1,14 +1,19 @@
 server:
   port: 8116
 spring:
-  boot:
-    admin:
+  cloud:
+    discovery:
       client:
-        url: http://localhost:8115 # 必须写http://
+        simple:
+          instances:
+            test:
+              - uri: http://localhost:8115
+                metadata:
+                  management.context-path: /actuator
   security:
-    user:
-      name: user
-      password: admin
+      user:
+        name: user
+        password: admin
 management:
   endpoints:
     web:
@@ -21,3 +26,5 @@ logging:
   file: client.log
 info:
   version: @project.version@
+  tags:
+    title: mosi

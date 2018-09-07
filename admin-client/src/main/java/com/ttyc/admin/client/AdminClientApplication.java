@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Slf4j
 @EnableScheduling
-
 /**
  *
  * This is a quite normal. The browser does some long polling and keeps the tcp connection open. If the browser window is closed the tcp connection is aborted and on the next write the exception is thrown. there is nothing to do about this, except changing the loglevel.
