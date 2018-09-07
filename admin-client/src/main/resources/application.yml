@@ -1,0 +1,12 @@
+server:
+  port: 8116
+spring:
+  boot:
+    admin:
+      client:
+        url: localhost:8115
+management:
+  endpoints:
+    jmx:
+      exposure:
+        include: *

@@ -1,0 +1,19 @@
+server:
+  port: 8115
+eureka:
+  instance:
+    health-check-url-path: /actuator/health
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 30
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8000/eureka/,http://localhost:8001/eureka/
+    registry-fetch-interval-seconds: 5
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
