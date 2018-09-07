@@ -1,7 +1,7 @@
 /target/
 !.mvn/wrapper/maven-wrapper.jar
 
-client.log
+
 ### STS ###
 .apt_generated
 .classpath
@@ -16,6 +16,7 @@ client.log
 *.iws
 *.iml
 *.ipr
+*.log
 
 ### NetBeans ###
 /nbproject/private/
@@ -24,3 +25,4 @@ client.log
 /dist/
 /nbdist/
 /.nb-gradle/
+
