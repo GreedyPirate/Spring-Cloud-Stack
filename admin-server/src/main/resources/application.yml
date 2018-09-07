@@ -2,7 +2,6 @@ server:
   port: 8115
 eureka:
   instance:
-    health-check-url-path: /actuator/health
     lease-renewal-interval-in-seconds: 10
     lease-expiration-duration-in-seconds: 30
   client:
@@ -17,3 +16,8 @@ management:
   endpoint:
     health:
       show-details: ALWAYS
+spring:
+  security:
+    user:
+      name: user
+      password: admin
