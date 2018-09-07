@@ -4,9 +4,20 @@ spring:
   boot:
     admin:
       client:
-        url: localhost:8115
+        url: http://localhost:8115 # 必须写http://
+  security:
+    user:
+      name: user
+      password: admin
 management:
   endpoints:
-    jmx:
+    web:
       exposure:
-        include: *
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+logging:
+  file: client.log
+info:
+  version: @project.version@
