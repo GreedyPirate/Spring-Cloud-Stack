@@ -277,3 +277,10 @@ clr(2018-09-07 15:10:53.418clr(2018-09-07 15:10:53.422clr(2018-09-07 15:10:53.48
 2018-09-07 15:49:30.002 DEBUG 2346 --- [pool-1-thread-1] com.ttyc.admin.client.config.TaskConfig  : 测试定时任务
 2018-09-07 15:49:40.001 DEBUG 2346 --- [pool-1-thread-1] com.ttyc.admin.client.config.TaskConfig  : 测试定时任务
 2018-09-07 15:49:50.004 DEBUG 2346 --- [pool-1-thread-1] com.ttyc.admin.client.config.TaskConfig  : 测试定时任务
+2018-09-07 15:50:00.003 DEBUG 2346 --- [pool-1-thread-1] com.ttyc.admin.client.config.TaskConfig  : 测试定时任务
+2018-09-07 15:50:10.002 DEBUG 2346 --- [pool-1-thread-1] com.ttyc.admin.client.config.TaskConfig  : 测试定时任务
+2018-09-07 15:50:20.002 DEBUG 2346 --- [pool-1-thread-1] com.ttyc.admin.client.config.TaskConfig  : 测试定时任务
+2018-09-07 15:50:30.001 DEBUG 2346 --- [pool-1-thread-1] com.ttyc.admin.client.config.TaskConfig  : 测试定时任务
+2018-09-07 15:50:40.003 DEBUG 2346 --- [pool-1-thread-1] com.ttyc.admin.client.config.TaskConfig  : 测试定时任务
+2018-09-07 15:50:50.004 DEBUG 2346 --- [pool-1-thread-1] com.ttyc.admin.client.config.TaskConfig  : 测试定时任务
+2018-09-07 15:51:00.003 DEBUG 2346 --- [pool-1-thread-1] com.ttyc.admin.client.config.TaskConfig  : 测试定时任务
