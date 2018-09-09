@@ -6,9 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
-@EnableAdminServer
 @EnableEurekaClient
+@EnableAdminServer
 public class AdminServerApplication {
+
 	public static void main(String[] args) {
 		SpringApplication.run(AdminServerApplication.class, args);
 	}

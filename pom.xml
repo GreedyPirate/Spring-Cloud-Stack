@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ttyc</groupId>
-    <artifactId>aicar-parent</artifactId>
+    <artifactId>Spring-Cloud-Stack</artifactId>
     <version>1.0.0</version>
-    <description>aicar parent project</description>
+    <description>Spring-Cloud-Stack</description>
     <packaging>pom</packaging>
     <developers>
         <developer>
@@ -45,6 +45,8 @@
         <module>spring-boot-doc</module>
         <module>consul-consumer</module>
         <module>consul-producer</module>
+        <module>admin-client</module>
+        <module>admin-server</module>
     </modules>
 
     <properties>

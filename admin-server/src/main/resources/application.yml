@@ -1,13 +1,12 @@
 server:
   port: 8115
-eureka:
-  instance:
-    lease-renewal-interval-in-seconds: 10
-    lease-expiration-duration-in-seconds: 30
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8000/eureka/,http://localhost:8001/eureka/
-    registry-fetch-interval-seconds: 5
+spring:
+  application:
+    name: admin-sever
+  security:
+    user:
+      name: user
+      password: admin
 management:
   endpoints:
     web:
@@ -16,8 +15,11 @@ management:
   endpoint:
     health:
       show-details: ALWAYS
-spring:
-  security:
-    user:
-      name: user
-      password: admin
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/,http://localhost:8001/eureka/
+info:
+  version: @project.version@

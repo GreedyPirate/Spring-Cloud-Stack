@@ -1,19 +1,21 @@
 server:
   port: 8116
 spring:
-  cloud:
-    discovery:
+  boot:
+    admin:
       client:
-        simple:
-          instances:
-            test:
-              - uri: http://localhost:8115
-                metadata:
-                  management.context-path: /actuator
+        url: http://localhost:8115
+        instance:
+          metadata:
+            tags:
+              content: mesh
   security:
-      user:
-        name: user
-        password: admin
+    user:
+      name: user
+      password: admin
+  application:
+    name: admin-client
+
 management:
   endpoints:
     web:
@@ -22,6 +24,7 @@ management:
   endpoint:
     health:
       show-details: ALWAYS
+
 logging:
   file: client.log
 info:

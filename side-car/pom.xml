@@ -13,7 +13,7 @@
 
 	<parent>
 		<groupId>com.ttyc</groupId>
-		<artifactId>aicar-parent</artifactId>
+		<artifactId>Spring-Cloud-Stack</artifactId>
 		<version>1.0.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
