@@ -1,0 +1,5 @@
+server:
+  port: 8117
+spring:
+  application:
+    name: @project.name@

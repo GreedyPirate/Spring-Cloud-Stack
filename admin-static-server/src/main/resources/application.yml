@@ -1,0 +1,24 @@
+spring:
+  cloud:
+    discovery:
+      client:
+        simple:
+          instances:
+            admin-static-client:
+              - uri: http://localhost:8117
+                metadata:
+                  management.context-path: /actuator
+  security:
+    user:
+      name: user
+      password: admin
+server:
+  port: 8118
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
