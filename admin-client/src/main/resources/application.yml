@@ -9,10 +9,15 @@ spring:
           metadata:
             tags:
               content: mesh
-  security:
-    user:
-      name: user
-      password: admin
+          name: ${spring.application.name}
+          prefer-ip: true
+        enabled: true
+        username: user
+        password: admin
+        connect-timeout: 5000ms
+        read-timeout: 5000ms
+        period: 10000ms # 每10秒注册一次
+        auto-registration: true #应用启动后自动开始注册
   application:
     name: admin-client
 

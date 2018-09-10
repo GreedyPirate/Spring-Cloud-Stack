@@ -43,7 +43,10 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -53,6 +56,18 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<!--
+			添加如下引用不好用，因为依赖太少无法编译通过
+			<groupId>com.netflix.governator</groupId>
+			<artifactId>governator</artifactId>
+			<version>1.9.3</version>
+			以下版本尝试过过1.9.3/1.10.5都可以编译通过，之后的版本无法编译通过
+			-->
+			<groupId>com.netflix.governator</groupId>
+			<artifactId>governator-annotations</artifactId>
+			<version>1.10.5</version>
 		</dependency>
 	</dependencies>
 

@@ -7,6 +7,29 @@ spring:
     user:
       name: user
       password: admin
+  boot:
+    admin:
+      ui:
+        title: "Spring Boot Admin监控管理中心"
+      notify:
+        mail:
+          from: 993203876@qq.com
+          to: 1370707282@qq.com
+          template: classpath:/META-INF/notifier.html
+  mail:
+    host: smtp.qq.com
+    port: 25
+    username: 993203876@qq.com
+    password: mjtbinvnbmqwbahh
+    protocol: smtp
+    test-connection: false
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
 management:
   endpoints:
     web:
