@@ -16,6 +16,7 @@ spring:
           from: 993203876@qq.com
           to: 1370707282@qq.com
           template: classpath:/META-INF/notifier.html
+          ignore-changes: "UNKNOWN:UP"
   mail:
     host: smtp.qq.com
     port: 25
