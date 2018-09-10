@@ -40,6 +40,11 @@
         <module>mq-user</module>
         <module>mq-common</module>
         <module>pom-test</module>
+        <module>jooq</module>
+        <module>java8</module>
+        <module>redisson-start</module>
+        <module>side-car</module>
+        <module>zuul-swagger-butler</module>
         <module>spring-security</module>
         <module>spring-base</module>
         <module>spring-boot-doc</module>
@@ -47,6 +52,8 @@
         <module>consul-producer</module>
         <module>admin-client</module>
         <module>admin-server</module>
+        <module>admin-static-client</module>
+        <module>admin-static-server</module>
     </modules>
 
     <properties>
