@@ -12,6 +12,8 @@ mvnw
 
 client.log
 
+*.gz
+
 # idea
 
 /.idea
