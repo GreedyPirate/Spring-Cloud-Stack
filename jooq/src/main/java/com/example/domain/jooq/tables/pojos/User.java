@@ -4,11 +4,10 @@
 package com.example.domain.jooq.tables.pojos;
 
 
-import java.io.Serializable;
+import org.jooq.types.UInteger;
 
 import javax.annotation.Generated;
-
-import org.jooq.types.UInteger;
+import java.io.Serializable;
 
 
 /**

@@ -5,7 +5,6 @@ import com.ttyc.mq.user.service.wx.response.LoginResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @FeignClient(url = "${wx.api.base-url}", name = "wx")
 public interface WxServiceClient {

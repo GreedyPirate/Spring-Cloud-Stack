@@ -12,13 +12,12 @@ import com.example.domain.jooq.tables.records.CarOpLogRecord;
 import com.example.domain.jooq.tables.records.JobExecutionLogRecord;
 import com.example.domain.jooq.tables.records.JobStatusTraceLogRecord;
 import com.example.domain.jooq.tables.records.UserRecord;
-
-import javax.annotation.Generated;
-
 import org.jooq.Identity;
 import org.jooq.UniqueKey;
 import org.jooq.impl.Internal;
 import org.jooq.types.UInteger;
+
+import javax.annotation.Generated;
 
 
 /**

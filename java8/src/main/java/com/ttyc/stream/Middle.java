@@ -1,7 +1,6 @@
 package com.ttyc.stream;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import org.junit.Before;
 import org.junit.Test;

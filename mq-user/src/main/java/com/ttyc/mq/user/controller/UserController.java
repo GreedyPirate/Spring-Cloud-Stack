@@ -4,7 +4,6 @@ import com.ttyc.mq.user.service.wx.WxServiceClient;
 import com.ttyc.mq.user.service.wx.request.LoginParam;
 import com.ttyc.mq.user.service.wx.response.LoginResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

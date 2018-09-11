@@ -1,9 +1,6 @@
 package com.ttyc.doc.extend.runner;
 
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Profile;
-import org.springframework.core.annotation.Order;
-import org.springframework.stereotype.Component;
 
 /**
  * CommandLineRunner和ApplicationRunner类似，多个必须加@Order

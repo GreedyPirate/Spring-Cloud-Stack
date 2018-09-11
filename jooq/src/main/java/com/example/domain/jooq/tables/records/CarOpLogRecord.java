@@ -5,16 +5,14 @@ package com.example.domain.jooq.tables.records;
 
 
 import com.example.domain.jooq.tables.CarOpLog;
-
-import java.sql.Timestamp;
-
-import javax.annotation.Generated;
-
 import org.jooq.Field;
 import org.jooq.Record1;
 import org.jooq.Record15;
 import org.jooq.Row15;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import javax.annotation.Generated;
+import java.sql.Timestamp;
 
 
 /**

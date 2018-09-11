@@ -8,12 +8,11 @@ import com.example.domain.jooq.tables.CarOpLog;
 import com.example.domain.jooq.tables.JobExecutionLog;
 import com.example.domain.jooq.tables.JobStatusTraceLog;
 import com.example.domain.jooq.tables.User;
-
-import javax.annotation.Generated;
-
 import org.jooq.Index;
 import org.jooq.OrderField;
 import org.jooq.impl.Internal;
+
+import javax.annotation.Generated;
 
 
 /**
