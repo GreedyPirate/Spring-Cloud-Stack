@@ -1,6 +1,7 @@
 package com.ttyc.consumer.feign;
 
 import com.spring4all.swagger.EnableSwagger2Doc;
+import com.ttyc.consumer.feign.service.ProducerClient;
 import com.ttyc.consumer.feign.service.SideCarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -17,15 +18,23 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ConsumerFeignApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ConsumerFeignApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ConsumerFeignApplication.class, args);
+    }
 
-	@Autowired
-	SideCarService sideCarService;
+    @Autowired
+    SideCarService sideCarService;
 
-	@GetMapping("php-test")
-	public String sidecar(){
-		return this.sideCarService.health();
-	}
+    @Autowired
+    ProducerClient producerClient;
+
+    @GetMapping("php-test")
+    public String sidecar() {
+        return this.sideCarService.health();
+    }
+
+    @GetMapping("feign")
+    public String feign() {
+        return this.producerClient.callProducer();
+    }
 }

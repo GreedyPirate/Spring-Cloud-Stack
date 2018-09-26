@@ -23,6 +23,7 @@ hystrix:
           thread:
             timeoutInMilliseconds: 10000
 
+
 # regist center
 eureka:
   client:

@@ -26,3 +26,18 @@ feign:
 swagger:
   base-package: com.ttyc.consumer.feign
   enabled: true
+
+#超時
+consumer-api:
+  ribbon:
+    ReadTimeout: 2000
+    ConnectTimeout: 1000
+    MaxAutoRetries: 1
+    MaxAutoRetriesNextServer: 1
+
+ribbon:
+  eager-load:
+    enabled: true
+    clients: consumer-api
+
+

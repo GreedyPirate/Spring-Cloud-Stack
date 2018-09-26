@@ -11,6 +11,7 @@ public class RestTempletConfig {
     @LoadBalanced
     @Bean
     public RestTemplate restTemplate(HttpComponentsClientHttpRequestFactory httpComponentsClientHttpRequestFactory){
-        return new RestTemplate(httpComponentsClientHttpRequestFactory);
+        RestTemplate restTemplate = new RestTemplate(httpComponentsClientHttpRequestFactory);
+        return restTemplate;
     }
 }
