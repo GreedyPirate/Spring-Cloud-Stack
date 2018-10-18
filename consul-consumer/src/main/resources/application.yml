@@ -5,7 +5,7 @@ spring:
     name: consul-consumer
   cloud:
     consul:
-      host: localhost
+      host: localhost #consul客户端地址
       port: 8500
       retry:
         max-attempts: 3
@@ -13,11 +13,17 @@ spring:
         max-interval: 2000
         multiplier: 1.1
       discovery:
-        health-check-interval: 10s
-        health-check-path: /actuator/health
-        health-check-timeout: 5s
+        health-check-interval: 10s #健康检查默认时间间隔
+        health-check-path: /actuator/health #健康检查默认请求路径
+        health-check-timeout: 5s #超时时间
+        #为服务生成一个32位随机字符作为实例名
+        instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+        health-check-tls-skip-verify: true #跳过https校验
         service-name: ${spring.application.name}
-        health-check-tls-skip-verify: true
+        heartbeat:
+          enabled: true
+          ttl-value: 5
+          ttl-unit: s
     loadbalancer:
       retry:
         enabled: true

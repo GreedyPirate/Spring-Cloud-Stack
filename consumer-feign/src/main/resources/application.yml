@@ -38,6 +38,6 @@ consumer-api:
 ribbon:
   eager-load:
     enabled: true
-    clients: consumer-api
+    clients: eureka-producer
 
 

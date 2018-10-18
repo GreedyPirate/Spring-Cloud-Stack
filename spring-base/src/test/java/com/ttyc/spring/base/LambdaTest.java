@@ -1,5 +1,6 @@
 package com.ttyc.spring.base;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -15,6 +16,13 @@ public class LambdaTest {
         names.add("a");
         Collections.sort(names,(a,b)-> a.compareTo(b));
         System.out.println(names);
+    }
+
+    @Test
+    public void testReg(){
+        String reg = "\\d{3}";
+        String number = "123";
+        Assert.assertTrue(number.matches(reg));
     }
 }
 
