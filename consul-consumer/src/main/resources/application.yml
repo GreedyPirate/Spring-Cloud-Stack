@@ -19,7 +19,7 @@ spring:
         #为服务生成一个32位随机字符作为实例名
         instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
         health-check-tls-skip-verify: true #跳过https校验
-        service-name: ${spring.application.name}
+        service-name: consumer-service
         heartbeat:
           enabled: true
           ttl-value: 5
