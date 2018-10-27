@@ -2,10 +2,10 @@ server:
   port: 8301
 spring:
   application:
-    name: consul-consumer
+    name: consumer-service
   cloud:
     consul:
-      host: localhost #consul客户端地址
+      host: 10.9.39.37 #consul客户端地址
       port: 8500
       retry:
         max-attempts: 3

@@ -2,10 +2,10 @@ server:
   port: 8300
 spring:
   application:
-    name: consul-producer
+    name: producer-service
   cloud:
     consul:
-      host: localhost
+      host: 10.9.188.187
       port: 8500
       retry:
         max-attempts: 3
