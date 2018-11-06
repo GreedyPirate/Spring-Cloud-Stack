@@ -1,5 +1,6 @@
 package com.ttyc.spring.base.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
@@ -13,6 +14,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @Data
 @Builder
+@AllArgsConstructor
 @Entity
 @Table(name="user")
 @XmlRootElement
