@@ -7,3 +7,5 @@
 2. eureka开启认证，客户端怎么配置？
 
 目前没找到方法，有毒
+
+-javaagent:/path/to/skywalking-agent/skywalking-agent.jar

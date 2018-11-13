@@ -3,10 +3,12 @@ package com.ttyc.spring.base.controller;
 import com.ttyc.spring.base.model.User;
 import com.ttyc.spring.base.service.AsyncService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.context.request.async.DeferredResult;
 
-import java.util.concurrent.ConcurrentLinkedDeque;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @RestController
 public class AsyncController {
@@ -14,12 +16,17 @@ public class AsyncController {
     @Autowired
     AsyncService asyncService;
 
-    private ConcurrentLinkedDeque<DeferredResult<User>> deferredResults =
-            new ConcurrentLinkedDeque<DeferredResult<User>>();
 
-    public DeferredResult<User> deferredResult(){
-        DeferredResult<User> result = new DeferredResult<User>(1000L);
-        deferredResults.add(result);
-        return null;
+    @GetMapping("callable")
+    public Callable<User> callable(){
+        ExecutorService service = Executors.newFixedThreadPool(2);
+
+        Callable<User> callable = ()->{
+            User user = new User(100L,"tone", "231");
+            return user;
+        };
+        service.submit(callable);
+
+        return callable;
     }
 }

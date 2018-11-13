@@ -12,14 +12,20 @@ spring:
     service:
       name: sleuth_consumer
     sender:
-      type: web
+      type: kafka
     locator:
       discovery:
         enabled: true
     base-url: http://dev.zipkin.songguo7.com:9411/
+  kafka:
+    bootstrap-servers: redis01.test.songguo7.com.ucb:9192,redis01.test.songguo7.com.ucb:9292,redis01.test.songguo7.com.ucb:9392
 eureka:
   client:
     service-url:
       defaultZone: http://peer1:8000/eureka/
 server:
   port: 8111
+logging:
+  level:
+    root: info
+

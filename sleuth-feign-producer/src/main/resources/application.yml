@@ -5,7 +5,7 @@ spring:
     service:
       name: sleuth-producer
     sender:
-      type: web
+      type: kafka
     base-url: http://dev.zipkin.songguo7.com:9411/
   sleuth:
     sampler:
@@ -14,6 +14,8 @@ spring:
     http:
       legacy:
         enabled: true
+  kafka:
+    bootstrap-servers: redis01.test.songguo7.com.ucb:9192,redis01.test.songguo7.com.ucb:9292,redis01.test.songguo7.com.ucb:9392
 eureka:
   client:
     service-url:

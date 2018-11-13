@@ -23,3 +23,10 @@ client.log
 .idea/*
 */target
 /consumer-feign/src/test/java/com/ttyc/consumer/feign/EnableFeignClientsTests.java
+.gitignore
+pom.xml
+src/main/java/com/ttyc/skywalking/producer/SkywalkingProducerApplication.java
+src/main/resources/
+src/test/
+
+skywalking

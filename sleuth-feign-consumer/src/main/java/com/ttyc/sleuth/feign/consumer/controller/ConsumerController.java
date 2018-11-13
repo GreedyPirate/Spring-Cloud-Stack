@@ -11,8 +11,10 @@ public class ConsumerController {
     @Autowired
     ThirdCallService thirdCallService;
 
-    @GetMapping("feign/hi")
+
+    @GetMapping("trace")
     public String hi(){
         return this.thirdCallService.getInfo();
     }
+
 }

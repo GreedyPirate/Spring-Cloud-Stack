@@ -15,5 +15,4 @@ public class AsyncService {
     @Qualifier("taskExecutor")
     Executor executor;
 
-
 }
