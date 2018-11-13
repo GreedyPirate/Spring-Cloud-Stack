@@ -4,6 +4,7 @@ import com.ttyc.jdk.assist.*;
 import org.junit.Test;
 
 import java.lang.reflect.AnnotatedType;
+import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.Arrays;
 
@@ -145,5 +146,17 @@ public class ClassApi {
             String name = annotatedInterface.getType().getTypeName();
             System.out.println(name);
         }
+    }
+
+    @Test
+    public void testFiled() throws NoSuchFieldException, IllegalAccessException {
+        Car car = new Car();
+        Class<Car> carClass = (Class<Car>) car.getClass();
+        Field color = carClass.getDeclaredField("color");
+        System.out.println(color.isAccessible());
+        color.setAccessible(true);
+        color.set(car,"xxx");
+        System.out.println(car.getColor());
+        System.out.println(car);
     }
 }

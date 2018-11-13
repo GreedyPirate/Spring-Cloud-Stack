@@ -5,7 +5,7 @@ spring:
     name: consumer-service
   cloud:
     consul:
-      host: 10.9.39.37 #consul客户端地址
+      host: 10.9.181.34 #consul客户端地址
       port: 8500
       retry:
         max-attempts: 3
@@ -17,13 +17,14 @@ spring:
         health-check-path: /actuator/health #健康检查默认请求路径
         health-check-timeout: 5s #超时时间
         #为服务生成一个32位随机字符作为实例名
-        instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+        #instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
         health-check-tls-skip-verify: true #跳过https校验
         service-name: consumer-service
         heartbeat:
           enabled: true
           ttl-value: 5
           ttl-unit: s
+        prefer-ip-address: true
     loadbalancer:
       retry:
         enabled: true

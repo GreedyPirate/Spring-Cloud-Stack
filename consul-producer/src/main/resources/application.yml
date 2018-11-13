@@ -5,7 +5,7 @@ spring:
     name: producer-service
   cloud:
     consul:
-      host: 10.9.188.187
+      host: 10.9.117.128
       port: 8500
       retry:
         max-attempts: 3
@@ -16,13 +16,14 @@ spring:
         health-check-interval: 10s
         health-check-path: /actuator/health
         health-check-timeout: 5s
-        instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
         health-check-tls-skip-verify: true
         service-name: producer-service
         heartbeat:
           enabled: true
           ttl-value: 5
           ttl-unit: s
+        prefer-ip-address: true
+#        prefer-agent-address: true 把client地址作为服务地址，除非是client和服务同机部署，否则不要加
     loadbalancer:
       retry:
         enabled: true
