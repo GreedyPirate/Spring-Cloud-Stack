@@ -18,6 +18,7 @@ public class Source {
     @AllArgsConstructor
     class User{
         private String name;
+        private Integer age;
     }
 
     @Before
@@ -28,7 +29,7 @@ public class Source {
         nums.add(-1);
         nums.add(0);
         nums.add(-5);
-        users.add(new User("jay"));
-        users.add(new User("uber"));
+        users.add(new User("jay",12));
+        users.add(new User("uber",24));
     }
 }
