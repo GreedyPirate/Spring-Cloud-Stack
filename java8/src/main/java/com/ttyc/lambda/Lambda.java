@@ -9,7 +9,4 @@ public class Lambda {
     }
 }
 
-@FunctionalInterface
-interface Include{
-    boolean include(String str);
-}
+
