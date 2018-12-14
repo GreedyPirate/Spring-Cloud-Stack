@@ -117,6 +117,13 @@
                 <artifactId>httpclientutil</artifactId>
                 <version>${httpclient.util.version}</version>
             </dependency>
+
+            <!-- vjtools -->
+            <dependency>
+                <groupId>com.vip.vjtools</groupId>
+                <artifactId>vjkit</artifactId>
+                <version>1.0.8-SNAPSHOT</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
