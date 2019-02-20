@@ -1,8 +1,5 @@
 package com.ttyc.producer.client.controller;
 
-import com.ttyc.mq.common.exception.BaseError;
-import com.ttyc.mq.common.exception.ServiceException;
-import com.ttyc.producer.client.model.User;
 import com.ttyc.producer.client.utils.ClassUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.validation.Valid;
 import java.util.Collection;
 import java.util.Enumeration;
 
@@ -54,11 +50,6 @@ public class ProducerController {
         logger.debug(file.getOriginalFilename());
         System.out.println(file.getName());
         return Boolean.TRUE;
-    }
-
-    @PostMapping(value = "user")
-    public String vaild(@Valid User user){
-        throw new ServiceException(BaseError.INTERNAL_SERVER_ERROR);
     }
 
     @GetMapping("class/location")

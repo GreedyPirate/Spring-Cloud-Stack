@@ -4,15 +4,19 @@
 package com.example.domain.jooq;
 
 
+import com.example.domain.jooq.tables.Address;
 import com.example.domain.jooq.tables.CarOpLog;
 import com.example.domain.jooq.tables.JobExecutionLog;
 import com.example.domain.jooq.tables.JobStatusTraceLog;
+import com.example.domain.jooq.tables.Student;
+import com.example.domain.jooq.tables.Test;
 import com.example.domain.jooq.tables.User;
+
+import javax.annotation.Generated;
+
 import org.jooq.Index;
 import org.jooq.OrderField;
 import org.jooq.impl.Internal;
-
-import javax.annotation.Generated;
 
 
 /**
@@ -32,6 +36,7 @@ public class Indexes {
     // INDEX definitions
     // -------------------------------------------------------------------------
 
+    public static final Index ADDRESS_PRIMARY = Indexes0.ADDRESS_PRIMARY;
     public static final Index CAR_OP_LOG_IDX_CAR = Indexes0.CAR_OP_LOG_IDX_CAR;
     public static final Index CAR_OP_LOG_IDX_OP_ID = Indexes0.CAR_OP_LOG_IDX_OP_ID;
     public static final Index CAR_OP_LOG_IDX_USER = Indexes0.CAR_OP_LOG_IDX_USER;
@@ -39,6 +44,8 @@ public class Indexes {
     public static final Index JOB_EXECUTION_LOG_PRIMARY = Indexes0.JOB_EXECUTION_LOG_PRIMARY;
     public static final Index JOB_STATUS_TRACE_LOG_PRIMARY = Indexes0.JOB_STATUS_TRACE_LOG_PRIMARY;
     public static final Index JOB_STATUS_TRACE_LOG_TASK_ID_STATE_INDEX = Indexes0.JOB_STATUS_TRACE_LOG_TASK_ID_STATE_INDEX;
+    public static final Index STUDENT_PRIMARY = Indexes0.STUDENT_PRIMARY;
+    public static final Index TEST_PRIMARY = Indexes0.TEST_PRIMARY;
     public static final Index USER_PRIMARY = Indexes0.USER_PRIMARY;
 
     // -------------------------------------------------------------------------
@@ -46,6 +53,7 @@ public class Indexes {
     // -------------------------------------------------------------------------
 
     private static class Indexes0 {
+        public static Index ADDRESS_PRIMARY = Internal.createIndex("PRIMARY", Address.ADDRESS, new OrderField[] { Address.ADDRESS.ID }, true);
         public static Index CAR_OP_LOG_IDX_CAR = Internal.createIndex("idx_car", CarOpLog.CAR_OP_LOG, new OrderField[] { CarOpLog.CAR_OP_LOG.CAR_SN, CarOpLog.CAR_OP_LOG.CREATE_TIME }, false);
         public static Index CAR_OP_LOG_IDX_OP_ID = Internal.createIndex("idx_op_id", CarOpLog.CAR_OP_LOG, new OrderField[] { CarOpLog.CAR_OP_LOG.OP_ID }, true);
         public static Index CAR_OP_LOG_IDX_USER = Internal.createIndex("idx_user", CarOpLog.CAR_OP_LOG, new OrderField[] { CarOpLog.CAR_OP_LOG.USER_TYPE, CarOpLog.CAR_OP_LOG.USER_ID, CarOpLog.CAR_OP_LOG.CREATE_TIME }, false);
@@ -53,6 +61,8 @@ public class Indexes {
         public static Index JOB_EXECUTION_LOG_PRIMARY = Internal.createIndex("PRIMARY", JobExecutionLog.JOB_EXECUTION_LOG, new OrderField[] { JobExecutionLog.JOB_EXECUTION_LOG.ID }, true);
         public static Index JOB_STATUS_TRACE_LOG_PRIMARY = Internal.createIndex("PRIMARY", JobStatusTraceLog.JOB_STATUS_TRACE_LOG, new OrderField[] { JobStatusTraceLog.JOB_STATUS_TRACE_LOG.ID }, true);
         public static Index JOB_STATUS_TRACE_LOG_TASK_ID_STATE_INDEX = Internal.createIndex("TASK_ID_STATE_INDEX", JobStatusTraceLog.JOB_STATUS_TRACE_LOG, new OrderField[] { JobStatusTraceLog.JOB_STATUS_TRACE_LOG.TASK_ID, JobStatusTraceLog.JOB_STATUS_TRACE_LOG.STATE }, false);
+        public static Index STUDENT_PRIMARY = Internal.createIndex("PRIMARY", Student.STUDENT, new OrderField[] { Student.STUDENT.ID }, true);
+        public static Index TEST_PRIMARY = Internal.createIndex("PRIMARY", Test.TEST, new OrderField[] { Test.TEST.ID }, true);
         public static Index USER_PRIMARY = Internal.createIndex("PRIMARY", User.USER, new OrderField[] { User.USER.ID }, true);
     }
 }

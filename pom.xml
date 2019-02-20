@@ -6,7 +6,7 @@
 
     <groupId>com.ttyc</groupId>
     <artifactId>Spring-Cloud-Stack</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-SNAPSHOT</version>
     <description>Spring-Cloud-Stack</description>
     <packaging>pom</packaging>
     <developers>
@@ -37,15 +37,12 @@
         <module>spring-gateway</module>
         <module>sleuth-feign-consumer</module>
         <module>sleuth-feign-producer</module>
-        <module>mq-user</module>
-        <module>mq-common</module>
         <module>pom-test</module>
         <module>jooq</module>
         <module>java8</module>
         <module>redisson-start</module>
         <module>side-car</module>
         <module>zuul-swagger-butler</module>
-        <module>spring-security</module>
         <module>spring-base</module>
         <module>spring-boot-doc</module>
         <module>consul-consumer</module>
