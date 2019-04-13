@@ -9,7 +9,9 @@ import org.junit.Assert;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Stream;
@@ -201,5 +203,22 @@ public class DateUtils {
         System.out.println(period.getDays());
         System.out.println(days);
         System.out.println(period.getMonths());
+
+        LocalDate today = LocalDate.now();
+        // 本月最后一天
+        LocalDate lastDayOfMonth = today.with(TemporalAdjusters.lastDayOfMonth());
+        // 第一个周一
+        LocalDate firstMonday = today.with(TemporalAdjusters.firstInMonth(DayOfWeek.MONDAY));
+        // 第二周的周五
+        LocalDate unknown = today.with(TemporalAdjusters.dayOfWeekInMonth(2, DayOfWeek.FRIDAY));
+
+        System.out.println(lastDayOfMonth.toString());
+        System.out.println(firstMonday.toString());
+        System.out.println(unknown.toString());
+
+
+        int[] data = {4, 16, 17, 20, 25, 32, 41};
+        Arrays.parallelPrefix(data, Integer::sum);
+        System.out.println(Arrays.toString(data));
     }
 }

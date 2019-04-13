@@ -1,4 +1,4 @@
-package com.ttyc.wheeltimer.conf;
+package com.net.wheeltimer.conf;
 
 /**
  * @author zhangp

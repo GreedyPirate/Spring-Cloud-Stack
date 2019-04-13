@@ -1,8 +1,6 @@
 package com.ttyc.stream;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import org.junit.Before;
+import com.ttyc.stream.obj.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,22 +12,22 @@ public class Source {
     public static int[] arr = {1,4,2,3,5};
     public static String str = "ac.bf.eg.hk";
 
-    @Data
-    @AllArgsConstructor
-    class User{
-        private String name;
-        private Integer age;
-    }
 
-    @Before
-    public void init() {
+    static  {
         strs.add("kim");
         strs.add("qua");
         strs.add("zra");
+        strs.add("qaq");
+        strs.add("set");
+        strs.add("wrt");
         nums.add(-1);
         nums.add(0);
         nums.add(-5);
-        users.add(new User("jay",12));
-        users.add(new User("uber",24));
+        users.add(new User("jay","male",1,12L));
+        users.add(new User("jay","male",1,24L));
+        users.add(new User("kim","female",2,10L));
+        users.add(new User("kim","female",2,20L));
+        users.add(new User("kim","female",2,30L));
+        users.add(new User("kim","female",3,40L));
     }
 }

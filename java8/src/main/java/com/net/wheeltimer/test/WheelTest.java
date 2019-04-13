@@ -1,9 +1,9 @@
-package com.ttyc.wheeltimer.test;
+package com.net.wheeltimer.test;
 
 
-import com.ttyc.wheeltimer.conf.WheelParam;
-import com.ttyc.wheeltimer.exception.TimeoutLongException;
-import com.ttyc.wheeltimer.wheel.WheelTimer;
+import com.net.wheeltimer.conf.WheelParam;
+import com.net.wheeltimer.exception.TimeoutLongException;
+import com.net.wheeltimer.wheel.WheelTimer;
 
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;

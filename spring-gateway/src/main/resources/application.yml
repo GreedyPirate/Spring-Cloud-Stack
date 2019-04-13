@@ -1,3 +1,6 @@
+server:
+  port: 8109
+
 eureka:
   client:
     service-url:
@@ -10,88 +13,93 @@ spring:
   cloud:
     gateway:
       routes:
-      - id: consumer #路径匹配
-        uri: http://localhost:8897
+      - id: prefix
+        uri: http://localhost:8101
         predicates:
-        - Path=/consumer-api/**
+        - Path=/consumer/service/{segment}
         filters:
-        - RewritePath=/consumer-api/(?<segment>.*), /$\{segment}
-      - id: producer
-        uri: lb://eureka-producer
-        predicates:
-        - Path=/eureka-producer/{segment}
-
-      - id: after_route #2点后
-        uri: http://localhost:8100
-        predicates:
-        - After=Tue Jul 03 14:00:13 CST 2018
-      - id: before_route #8点之前
-        uri: http://localhost:8108
-        predicates:
-        - Before=Tue Jul 03 20:00:13 CST 2018
-      - id: between-route #9-10点之间
-        uri: http://localhost:8108
-        predicates:
-        - Between=Tue Jul 03 9:00:13 CST 2018,Tue Jul 03 10:00:13 CST 2018
-      - id: cookie-route #有name为chocolate，并且值满足ch.p正则表达式
-        uri: http://localhost:8108
-        predicates:
-        - Cookie=chocolate, ch.p
-      - id: header_route #请求头里有X-B3-traceId的key，并且value满足正则
-        uri: http://localhost:8108
-        predicates:
-        - Header=X-B3-traceId, \d+
-      - id: host_route #主机名匹配
-        uri: http://localhost:8108
-        predicates:
-        - Host=**.somehost.org #ant风格
-      - id: method_route #请求方式为Get则匹配
-        uri: http://localhost:8108
-        predicates:
-        - Method=GET
-      - id: path_route #路径匹配
-        uri: http://localhost:8108
-        predicates:
-        - Path=/foo/{segment}
-      - id: query_route #请求参数匹配
-        uri: http://example.org
-        predicates:
-        - Query=foo, ba. # foo在参数名，ba.为值的正则
-      - id: remoteaddr_route #ip地址匹配
-        uri: http://example.org
-        predicates:
-        - RemoteAddr=192.168.1.1/24
-########################filters########################################
-      - id: add_request_header_route # 给下游服务添加请求header
-        uri: http://localhost:8108
-        filters:
-        - AddRequestHeader=X-Request-Foo, Bar
-      - id: add_request_header_route # 下游服务的响应头添加header
-        uri: http://example.org
-        filters:
-        - AddResponseHeader=X-Response-Foo, Bar
-      - id: hystrix_route #添加hystrix熔断功能
-        uri: http://example.org
-        filters:
-        - Hystrix=myCommandName #command name
-      - id: prefixpath_route # 添加foo前缀，/user->/foo/user
-        uri: http://example.org
-        filters:
-        - PrefixPath=/foo
-      - id: preserve_host_route #检查是否应该发送原始主机头，而不是由HTTP客户端确定的主机头
-        uri: http://example.org
-        filters:
-        - PreserveHostHeader
-      - id: request_limiter_route
-        uri:
-        filters:
-          key-resolver: "#{@myKeyResolver}"
-  zipkin:
-    sender:
-      type: web
-    base-url: http://localhost:9411/
-  sleuth:
-      sampler:
-        probability: 1.0
-server:
-  port: 8109
+        - StripPrefix=2
+        -
+#      - id: consumer #路径匹配
+#        uri: http://localhost:8897
+#        predicates:
+#        - Path=/consumer-api/**
+#        filters:
+#        - RewritePath=/consumer-api/(?<segment>.*), /$\{segment}
+#      - id: producer
+#        uri: lb://eureka-producer
+#        predicates:
+#        - Path=/eureka-producer/{segment}
+#
+#      - id: after_route #2点后
+#        uri: http://localhost:8100
+#        predicates:
+#        - After=Tue Jul 03 14:00:13 CST 2018
+#      - id: before_route #8点之前
+#        uri: http://localhost:8108
+#        predicates:
+#        - Before=Tue Jul 03 20:00:13 CST 2018
+#      - id: between-route #9-10点之间
+#        uri: http://localhost:8108
+#        predicates:
+#        - Between=Tue Jul 03 9:00:13 CST 2018,Tue Jul 03 10:00:13 CST 2018
+#      - id: cookie-route #有name为chocolate，并且值满足ch.p正则表达式
+#        uri: http://localhost:8108
+#        predicates:
+#        - Cookie=chocolate, ch.p
+#      - id: header_route #请求头里有X-B3-traceId的key，并且value满足正则
+#        uri: http://localhost:8108
+#        predicates:
+#        - Header=X-B3-traceId, \d+
+#      - id: host_route #主机名匹配
+#        uri: http://localhost:8108
+#        predicates:
+#        - Host=**.somehost.org #ant风格
+#      - id: method_route #请求方式为Get则匹配
+#        uri: http://localhost:8108
+#        predicates:
+#        - Method=GET
+#      - id: path_route #路径匹配
+#        uri: http://localhost:8108
+#        predicates:
+#        - Path=/foo/{segment}
+#      - id: query_route #请求参数匹配
+#        uri: http://example.org
+#        predicates:
+#        - Query=foo, ba. # foo在参数名，ba.为值的正则
+#      - id: remoteaddr_route #ip地址匹配
+#        uri: http://example.org
+#        predicates:
+#        - RemoteAddr=192.168.1.1/24
+#########################filters########################################
+#      - id: add_request_header_route # 给下游服务添加请求header
+#        uri: http://localhost:8108
+#        filters:
+#        - AddRequestHeader=X-Request-Foo, Bar
+#      - id: add_request_header_route # 下游服务的响应头添加header
+#        uri: http://example.org
+#        filters:
+#        - AddResponseHeader=X-Response-Foo, Bar
+#      - id: hystrix_route #添加hystrix熔断功能
+#        uri: http://example.org
+#        filters:
+#        - Hystrix=myCommandName #command name
+#      - id: prefixpath_route # 添加foo前缀，/user->/foo/user
+#        uri: http://example.org
+#        filters:
+#        - PrefixPath=/foo
+#      - id: preserve_host_route #检查是否应该发送原始主机头，而不是由HTTP客户端确定的主机头
+#        uri: http://example.org
+#        filters:
+#        - PreserveHostHeader
+#      - id: request_limiter_route
+#        uri:
+#        filters:
+#          key-resolver: "#{@myKeyResolver}"
+#  zipkin:
+#    sender:
+#      type: web
+#    base-url: http://localhost:9411/
+#  sleuth:
+#      sampler:
+#        probability: 1.0

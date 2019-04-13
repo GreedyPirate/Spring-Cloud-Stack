@@ -1,4 +1,4 @@
-package com.ttyc.wheeltimer.exception;
+package com.net.wheeltimer.exception;
 
 /**
  * @author zhangp

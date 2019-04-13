@@ -1,7 +1,7 @@
-package com.ttyc.wheeltimer.conf;
+package com.net.wheeltimer.conf;
 
 
-import com.ttyc.wheeltimer.wheel.Tick;
+import com.net.wheeltimer.wheel.Tick;
 
 /**
  * @author zhangp

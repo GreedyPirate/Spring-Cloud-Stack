@@ -40,7 +40,7 @@ public class ProducerController {
         return "hi, consumer";
     }
 
-    @PostMapping(value = "status")
+    @GetMapping(value = "status")
     public String health(){
         return "OK";
     }
