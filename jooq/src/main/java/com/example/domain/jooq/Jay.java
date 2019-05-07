@@ -4,18 +4,23 @@
 package com.example.domain.jooq;
 
 
+import com.example.domain.jooq.tables.Address;
 import com.example.domain.jooq.tables.CarOpLog;
 import com.example.domain.jooq.tables.JobExecutionLog;
 import com.example.domain.jooq.tables.JobStatusTraceLog;
+import com.example.domain.jooq.tables.Student;
+import com.example.domain.jooq.tables.Test;
 import com.example.domain.jooq.tables.User;
-import org.jooq.Catalog;
-import org.jooq.Table;
-import org.jooq.impl.SchemaImpl;
 
-import javax.annotation.Generated;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import javax.annotation.Generated;
+
+import org.jooq.Catalog;
+import org.jooq.Table;
+import org.jooq.impl.SchemaImpl;
 
 
 /**
@@ -31,12 +36,17 @@ import java.util.List;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Jay extends SchemaImpl {
 
-    private static final long serialVersionUID = -1181177910;
+    private static final long serialVersionUID = -721051587;
 
     /**
      * The reference instance of <code>jay</code>
      */
     public static final Jay JAY = new Jay();
+
+    /**
+     * The table <code>jay.address</code>.
+     */
+    public final Address ADDRESS = com.example.domain.jooq.tables.Address.ADDRESS;
 
     /**
      * 车辆操作记录
@@ -52,6 +62,16 @@ public class Jay extends SchemaImpl {
      * The table <code>jay.JOB_STATUS_TRACE_LOG</code>.
      */
     public final JobStatusTraceLog JOB_STATUS_TRACE_LOG = com.example.domain.jooq.tables.JobStatusTraceLog.JOB_STATUS_TRACE_LOG;
+
+    /**
+     * The table <code>jay.student</code>.
+     */
+    public final Student STUDENT = com.example.domain.jooq.tables.Student.STUDENT;
+
+    /**
+     * The table <code>jay.test</code>.
+     */
+    public final Test TEST = com.example.domain.jooq.tables.Test.TEST;
 
     /**
      * The table <code>jay.user</code>.
@@ -83,9 +103,12 @@ public class Jay extends SchemaImpl {
 
     private final List<Table<?>> getTables0() {
         return Arrays.<Table<?>>asList(
+            Address.ADDRESS,
             CarOpLog.CAR_OP_LOG,
             JobExecutionLog.JOB_EXECUTION_LOG,
             JobStatusTraceLog.JOB_STATUS_TRACE_LOG,
+            Student.STUDENT,
+            Test.TEST,
             User.USER);
     }
 }

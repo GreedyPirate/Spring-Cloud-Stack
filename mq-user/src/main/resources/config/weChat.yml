@@ -1,5 +1,0 @@
-wx:
-  appid: wxb5a85955f2cdaac0
-  secret: 0337c02d60316c54031f8ee163e2fb9c
-  api:
-    base-url: https://api.weixin.qq.com/

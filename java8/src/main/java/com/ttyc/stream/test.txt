@@ -1,0 +1,4 @@
+./kafka-console-producer.sh --broker-list 10.9.188.145:9192,10.9.188.145:9292,10.9.188.145:9392 --sync --topic zipkin
+[{"traceId":"becd119aca3bbce2","id":"becd119aca3bbce2","kind":"SERVER","name":"post","timestamp":1542594620918104,"duration":78838,
+"localEndpoint":{"serviceName":"ebike-alarm","ipv4":"10.9.188.187"},"remoteEndpoint":{"ipv4":"10.9.188.187","port":36141},"tags":
+{"http.method":"POST","http.path":"/ebike-alarm/alarm/alarm-list"}}]
