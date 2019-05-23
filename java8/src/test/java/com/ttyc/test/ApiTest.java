@@ -10,5 +10,7 @@ public class ApiTest {
         System.out.println("hrs".hashCode() % 50);
 
         System.out.println();
+
+        String s= "";
     }
 }

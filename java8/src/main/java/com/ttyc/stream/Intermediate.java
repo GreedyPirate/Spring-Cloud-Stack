@@ -1,5 +1,6 @@
 package com.ttyc.stream;
 
+import com.ttyc.stream.obj.Demo;
 import com.ttyc.stream.obj.User;
 import org.junit.Test;
 
@@ -109,8 +110,26 @@ public class Intermediate {
         System.out.println(Arrays.toString(list.toArray(new String[list.size()])));
     }
 
+    /**
+     * list转map时，去除重复key
+     */
     @Test
-    public void testReduce() {
-        Source.users.stream();
+    public void testDuplicateKey() {
+        List<Demo> list = new ArrayList<>();
+        list.add(Demo.of("k1", "a"));
+        list.add(Demo.of("k1", "b"));
+        list.add(Demo.of("k2", "c"));
+
+        Map<String, String> map = list.stream().collect(Collectors.toMap(Demo::getKey, Demo::getName, (e1,e2) -> e1));
+
+        map.forEach((k,v) -> {
+            System.out.println(k + "--" + v);
+        });
+
+        User user = null;
+        Optional<User> optionalUser = Optional.ofNullable(user);
+        optionalUser.orElseThrow(() -> new RuntimeException("用户不存在"));
     }
+
+
 }

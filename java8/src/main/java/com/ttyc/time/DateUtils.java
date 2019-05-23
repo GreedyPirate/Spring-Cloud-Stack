@@ -220,5 +220,12 @@ public class DateUtils {
         int[] data = {4, 16, 17, 20, 25, 32, 41};
         Arrays.parallelPrefix(data, Integer::sum);
         System.out.println(Arrays.toString(data));
+
+        LocalDate monday2 = firstMonday.with(TemporalAdjusters.next(DayOfWeek.MONDAY));
+        LocalDate monday3 = monday2.with(TemporalAdjusters.next(DayOfWeek.MONDAY));
+        LocalDate monday4 = monday3.with(TemporalAdjusters.next(DayOfWeek.MONDAY));
+        System.out.println(monday2.toString());
+        System.out.println(monday3.toString());
+        System.out.println(monday4.toString());
     }
 }

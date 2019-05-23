@@ -19,6 +19,10 @@ public class User {
         this.gender = gender;
     }
 
+    public User(Integer type) {
+        this.type = type;
+    }
+
     public String getKey() {
         return new StringBuilder().append(name).append('-').append(gender).toString();
     }
