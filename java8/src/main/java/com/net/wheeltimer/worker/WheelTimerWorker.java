@@ -1,9 +1,9 @@
-package com.ttyc.wheeltimer.worker;
+package com.net.wheeltimer.worker;
 
-import com.ttyc.wheeltimer.wheel.WheelTimer;
-import com.ttyc.wheeltimer.wheelhandle.BaseWheelHandle;
-import com.ttyc.wheeltimer.wheelhandle.MulitWheelHandle;
-import com.ttyc.wheeltimer.wheelhandle.SingelWheelHandle;
+import com.net.wheeltimer.wheel.WheelTimer;
+import com.net.wheeltimer.wheelhandle.BaseWheelHandle;
+import com.net.wheeltimer.wheelhandle.MulitWheelHandle;
+import com.net.wheeltimer.wheelhandle.SingelWheelHandle;
 
 /**
  * @author zhangp

@@ -25,6 +25,7 @@ public class Duplicate {
     public static Car param(Car car, Duplicate duplicate) {
         duplicate.setI(20);
         car.setColor("blue");
+
         return car;
     }
 

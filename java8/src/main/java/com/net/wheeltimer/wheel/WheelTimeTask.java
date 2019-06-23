@@ -1,4 +1,4 @@
-package com.ttyc.wheeltimer.wheel;
+package com.net.wheeltimer.wheel;
 
 import java.util.TimerTask;
 

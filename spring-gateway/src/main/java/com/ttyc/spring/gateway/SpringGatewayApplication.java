@@ -4,14 +4,16 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
+import org.springframework.cloud.gateway.support.ServerWebExchangeUtils;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.server.reactive.ServerHttpResponse;
-import org.springframework.util.StringUtils;
 import reactor.core.publisher.Mono;
 
-import java.util.List;
+import java.util.LinkedHashSet;
+import java.util.Optional;
+import java.util.stream.StreamSupport;
 
 @SpringBootApplication
 @EnableEurekaClient
@@ -27,12 +29,19 @@ public class SpringGatewayApplication {
 
     @Bean
     @Order(-1)
-    public GlobalFilter filter() {
+    public GlobalFilter urlFilter() {
         return (exchange, chain) -> {
-            List<String> traceId = exchange.getRequest().getHeaders().get(TRACE_ID);
+//            List<String> traceId = exchange.getRequest().getHeaders().get(TRACE_ID);
             ServerHttpResponse response = exchange.getResponse();
-            response.getHeaders().add(TRACE_ID, StringUtils.collectionToCommaDelimitedString(traceId));
+//            response.getHeaders().add(TRACE_ID, StringUtils.collectionToCommaDelimitedString(traceId));
             return chain.filter(exchange.mutate().response(response).build()).then(Mono.fromRunnable(() -> {
+                String path = exchange.getRequest().getPath().pathWithinApplication().value();
+                LinkedHashSet attribute =
+                        exchange.getAttribute(ServerWebExchangeUtils.GATEWAY_ORIGINAL_REQUEST_URL_ATTR);
+                Optional<String> first = StreamSupport.stream(attribute.spliterator(), false).findFirst();
+                String url = first.get();
+
+                log.info("path is {}, url is {}", path, url);
             }));
         };
     }

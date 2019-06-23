@@ -1,9 +1,9 @@
-package com.ttyc.wheeltimer.wheelhandle;
+package com.net.wheeltimer.wheelhandle;
 
-import com.ttyc.wheeltimer.conf.WheelRuntimeParam;
-import com.ttyc.wheeltimer.wheel.Tick;
-import com.ttyc.wheeltimer.wheel.WheelTimeTask;
-import com.ttyc.wheeltimer.wheel.WheelTimer;
+import com.net.wheeltimer.conf.WheelRuntimeParam;
+import com.net.wheeltimer.wheel.Tick;
+import com.net.wheeltimer.wheel.WheelTimeTask;
+import com.net.wheeltimer.wheel.WheelTimer;
 
 import java.util.Iterator;
 import java.util.Set;
