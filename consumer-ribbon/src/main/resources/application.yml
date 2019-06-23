@@ -9,26 +9,26 @@ spring:
         enabled: true
 
 # ribbon retry
-eureka-consumer-ribbon:
-  ConnectTimeout: 250
-  ReadTimeout: 1000
-  OkToRetryOnAllOperations: true
-  MaxAutoRetriesNextServer: 2
-  MaxAutoRetries: 1
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 10000
+#eureka-consumer-ribbon:
+#  ConnectTimeout: 250
+#  ReadTimeout: 1000
+#  OkToRetryOnAllOperations: true
+#  MaxAutoRetriesNextServer: 2
+#  MaxAutoRetries: 1
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 10000
 
 
 # regist center
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8000/eureka/
+      defaultZone: http://localhost:8000/eureka/,http://localhost:8001/eureka/
   instance:
     prefer-ip-address: true
     lease-renewal-interval-in-seconds: 10 # 每10s发送心跳包
@@ -36,5 +36,10 @@ eureka:
 swagger:
   base-package: com.ttyc.consumer.ribbon
   enabled: true
+
+#eureka-producer:
+#  ribbon:
+#    listOfServers: http://localhost:8100
+
 
 
