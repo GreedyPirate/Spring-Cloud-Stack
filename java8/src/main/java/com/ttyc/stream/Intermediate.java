@@ -27,6 +27,12 @@ public class Intermediate {
     }
 
     @Test
+    public void testCount() {
+        long count = users.stream().filter(t -> t.getType().equals(2)).count();
+        System.out.println("count = " + count);
+    }
+
+    @Test
     public void testMap() {
         Stream<String> stringStream = users.stream().map(User::getName);
         stringStream.forEach(out::println);

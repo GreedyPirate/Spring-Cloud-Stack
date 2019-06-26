@@ -5,7 +5,7 @@ spring:
     name: producer-service
   cloud:
     consul:
-      host: 10.9.117.128
+      host: 10.9.181.34
       port: 8500
       retry:
         max-attempts: 3
@@ -19,7 +19,7 @@ spring:
         health-check-tls-skip-verify: true
         service-name: producer-service
         heartbeat:
-          enabled: true
+          enabled: true # 默认是关闭的
           ttl-value: 5
           ttl-unit: s
         prefer-ip-address: true
