@@ -26,4 +26,5 @@ public class StreamMap {
             System.out.println(k + "----" + v);
         });
     }
+
 }

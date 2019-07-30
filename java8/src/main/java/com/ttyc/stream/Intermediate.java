@@ -5,6 +5,7 @@ import com.ttyc.stream.obj.User;
 import org.junit.Test;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -33,6 +34,13 @@ public class Intermediate {
     }
 
     @Test
+    public void testSort() {
+        List<User> collect = users.stream().sorted(Comparator.comparing(User::getAge)).collect(Collectors.toList());
+        System.out.println(users);
+        System.out.println(collect);
+    }
+
+    @Test
     public void testMap() {
         Stream<String> stringStream = users.stream().map(User::getName);
         stringStream.forEach(out::println);
@@ -55,13 +63,6 @@ public class Intermediate {
     public void testSkip() {
         String url = "gateway/user/role-list";
         pattern.splitAsStream(url).forEach(item -> System.out.println(item));
-
-        Long i = 200L;
-        int j = 200;
-        System.out.println(i.equals(j));
-        System.out.println(i.equals((long)j));
-        System.out.println(i == j);
-        System.out.println(i.intValue() == j);
     }
 
     /**
@@ -90,14 +91,14 @@ public class Intermediate {
     @Test
     public void testPrefixGroup() {
         List<String> list = new ArrayList<>();
-        list.add("20190101_a1000123.log");
-        list.add("20190101_a1020223.log");
-        list.add("20190101_a1024123.log");
+        list.add("20190101_01.log");
+        list.add("20190101_02.log");
+        list.add("20190101_03.log");
 
-        list.add("20190102_a1000123.log");
-        list.add("20190102_a1020223.log");
+        list.add("20190102_01.log");
+        list.add("20190102_02.log");
 
-        list.add("20190103_a1024123.log");
+        list.add("20190103_01.log");
 
         Map<String, List<String>> map = list.stream().collect(Collectors.groupingBy(s -> s.substring(0, s.indexOf('_')), Collectors.toList()));
         map.forEach((k, v) -> System.out.println(k + "----" + v));
@@ -137,5 +138,9 @@ public class Intermediate {
         optionalUser.orElseThrow(() -> new RuntimeException("用户不存在"));
     }
 
+    @Test
+    public void testDuplicateKeyError() {
+        Map<Integer, User> errorMap = Source.users.stream().collect(Collectors.toMap(User::getType, Function.identity()));
+    }
 
 }
