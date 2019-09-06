@@ -40,4 +40,15 @@ ribbon:
     enabled: true
     clients: eureka-producer
 
+xpack.notification.email.account:
+  qq_account:
+    profile: qq
+    smtp:
+      auth: true
+      starttls.enable: true
+      host: smtp.qq.com
+      user: 993203876@qq.com
+      port: 587
+      password: cjwvmgokutikbcjg
+
 

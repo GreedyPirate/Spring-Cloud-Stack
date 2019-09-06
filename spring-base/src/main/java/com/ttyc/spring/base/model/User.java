@@ -3,6 +3,7 @@ package com.ttyc.spring.base.model;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -19,6 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name="user")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
+@NoArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

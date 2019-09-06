@@ -11,7 +11,6 @@ import org.springframework.cloud.consul.discovery.HeartbeatProperties;
 import org.springframework.cloud.consul.serviceregistry.ConsulAutoRegistration;
 import org.springframework.cloud.consul.serviceregistry.ConsulRegistrationCustomizer;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
 
 import java.util.List;
 
@@ -23,7 +22,7 @@ public class ConsulProducerApplication {
 		SpringApplication.run(ConsulProducerApplication.class, args);
 	}
 
-	@Bean
+//	@Bean
 	public ConsulAutoRegistration consulRegistration(AutoServiceRegistrationProperties autoServiceRegistrationProperties,
 													 ConsulDiscoveryProperties properties, ApplicationContext applicationContext,
 													 ObjectProvider<List<ConsulRegistrationCustomizer>> registrationCustomizers, HeartbeatProperties heartbeatProperties) {
