@@ -30,8 +30,9 @@ public class Source {
         User user1 = new User("kim", "female", 2, 10L);
         User user2 = new User("jay", "male", 1, 24L);
         User user3 = new User("kim", "female", 2, 180L);
-        User user4 = new User("kim", "female", 2, 30L);
+        User user4 = new User("jay", "female", 2, 30L);
         User user5 = new User("kim", "female", 3, 20L);
+        User user6 = new User("kim", "female", 3, 100L);
 
         users = Arrays.asList(user0, user1, user2, user3, user4, user5);
 

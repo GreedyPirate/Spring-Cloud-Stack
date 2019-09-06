@@ -143,4 +143,10 @@ public class Intermediate {
         Map<Integer, User> errorMap = Source.users.stream().collect(Collectors.toMap(User::getType, Function.identity()));
     }
 
+    @Test
+    public void testJoinStr() {
+        Map<String, List<String>> mergeGender = Source.users.stream().collect(Collectors.groupingBy(User::getName, Collectors.mapping(User::getGender, Collectors.toList())));
+        System.out.println("mergeGender = " + mergeGender);
+    }
+
 }

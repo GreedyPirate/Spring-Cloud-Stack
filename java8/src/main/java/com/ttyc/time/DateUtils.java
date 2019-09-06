@@ -227,5 +227,13 @@ public class DateUtils {
         System.out.println(monday2.toString());
         System.out.println(monday3.toString());
         System.out.println(monday4.toString());
+
+
+        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime zero = LocalDateTime.now().truncatedTo(ChronoUnit.DAYS);
+        LocalTime time = LocalTime.of(23, 59, 59);
+        LocalDateTime lastTime = LocalDateTime.of(now.toLocalDate(), time);
+        System.out.println("zero = " + zero);
+        System.out.println("lastTime = " + lastTime);
     }
 }
