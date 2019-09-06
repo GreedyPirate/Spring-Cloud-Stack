@@ -7,10 +7,10 @@ public class CycleQueue<T> {
     private Object[] elements;
 
     /**
-     * front记录头元素所在位置
-     * rear 记录尾元素的下一个位置
+     * head记录头元素所在位置
+     * tail 记录尾元素的下一个位置
      */
-    private int front, rear;
+    private int head, tail;
 
     private static final int DEFAULT_CAPACITY = 15;
 
@@ -23,21 +23,21 @@ public class CycleQueue<T> {
     }
 
     public void add(T t) {
-        // rear的下一个如果是front，那么循环队列一定是满了
-        if ((rear + 1) % elements.length == front) {
+        // tail的下一个如果是head，那么循环队列一定是满了
+        if ((tail + 1) % elements.length == head) {
             throw new IllegalStateException("队列已满");
         }
-        elements[rear] = t;
+        elements[tail] = t;
 
-        rear = (rear + 1) % elements.length;
+        tail = (tail + 1) % elements.length;
     }
 
     public T poll() {
-        if (rear == front) {
+        if (tail == head) {
             return null;
         }
-        T t = (T) elements[front];
-        front = (front + 1) % elements.length;
+        T t = (T) elements[head];
+        head = (head + 1) % elements.length;
         return t;
     }
 
