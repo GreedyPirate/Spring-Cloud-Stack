@@ -2,6 +2,10 @@ package com.base;
 
 import java.util.Arrays;
 
+/**
+ * 使用顺序表实现的循环队列
+ * @param <T>
+ */
 public class CycleQueue<T> {
 
     private Object[] elements;
