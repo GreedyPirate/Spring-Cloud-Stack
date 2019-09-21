@@ -32,5 +32,11 @@ public class ApiTest {
         String path = "";
         String newPath = Arrays.stream(StringUtils.tokenizeToStringArray(path, "/"))
                 .skip(2).collect(Collectors.joining("/"));
+
+        int bucketIndex = (int) ((7234 / 1000) % 60000);
+        System.out.println("bucketIndex = " + bucketIndex);
+
+        int i = (int) ((System.currentTimeMillis() / 1000) % 60);
+        System.out.println("i = " + i);
     }
 }

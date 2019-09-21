@@ -1,5 +1,8 @@
 package com.net.timewheel4j;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.concurrent.DelayQueue;
 
 /**
@@ -42,6 +45,12 @@ public class TimeWheel {
      */
     private DelayQueue<TimerTaskList> delayQueue;
 
+    /**
+     * @param tick 间隔时间
+     * @param wheelSize 轮子的格数
+     * @param currentTime 当前时间
+     * @param delayQueue
+     */
     public TimeWheel(long tick, int wheelSize, long currentTime, DelayQueue<TimerTaskList> delayQueue) {
         this.tick = tick;
         this.wheelSize = wheelSize;
@@ -71,8 +80,12 @@ public class TimeWheel {
 
     /**
      * 添加任务到时间轮
+     * @param timerTask 任务
+     * @return 任务是否过期，假设当前时间指针到了20s, 添加进来的任务延迟为10s, 已经过期了，直接执行任务
+     * 还有个特殊情况，当前为20s的时候，
      */
     public boolean addTask(TimerTask timerTask) {
+        // 任务过期时间
         long expiration = timerTask.getDelayMs();
         //过期任务直接执行
         if (expiration < currentTime + tick) {
@@ -99,8 +112,10 @@ public class TimeWheel {
      * 推进时间
      */
     public void advanceClock(long timestamp) {
+        System.out.println("timestamp = " + LocalDateTime.ofInstant(Instant.ofEpochMilli(timestamp), ZoneId.systemDefault()));
         if (timestamp >= currentTime + tick) {
             currentTime = timestamp - (timestamp % tick);
+            System.out.println("currentTime = " + LocalDateTime.ofInstant(Instant.ofEpochMilli(currentTime), ZoneId.systemDefault()));
             if (overflowWheel != null) {
                 //推进上层时间轮时间
                 getOverflowWheel().advanceClock(timestamp);

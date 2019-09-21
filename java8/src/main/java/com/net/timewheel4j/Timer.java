@@ -56,7 +56,7 @@ public class Timer {
     }
 
     /**
-     * 获取过期任务
+     * 推进时钟？
      */
     private void advanceClock(long timeout) {
         try {
