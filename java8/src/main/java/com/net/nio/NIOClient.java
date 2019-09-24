@@ -102,6 +102,7 @@ public class NIOClient {
 					while (iterator.hasNext()) {
 						SelectionKey key = iterator.next();
 						iterator.remove();
+						key.attach("hello");
 						handleKey(key);
 					}
 				}
@@ -155,11 +156,13 @@ public class NIOClient {
 				ByteBuffer buffer = ByteBuffer.allocate(1024);
 				try {
 					int length = clientChannel.read(buffer);
- 
-					String response = new String(buffer.array(), 0, length);
- 
-					System.out.println("10 ------ client receive server's response : " + response);
- 
+
+					if(length > 0) {
+						String response = new String(buffer.array(), 0, length);
+
+						System.out.println("10 ------ client receive server's response : " + response);
+					}
+
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -175,6 +178,8 @@ public class NIOClient {
 					}
 				}
 			}
+
+			System.out.println(key.attachment());
 		}
 	}
  
