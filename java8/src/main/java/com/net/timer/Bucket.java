@@ -8,7 +8,7 @@ import java.util.function.Consumer;
 
 public class Bucket implements Delayed {
 
-    /** 当前槽的过期时间 */
+    /** 当前槽的过期时间, 从task中初始化 */
     private AtomicLong expiration = new AtomicLong(-1L);
 
     /** 根节点 */
@@ -82,6 +82,7 @@ public class Bucket implements Delayed {
 
     @Override
     public long getDelay(TimeUnit unit) {
+        // max保证不能是负数
         return Math.max(0, unit.convert(expiration.get() - System.currentTimeMillis(), TimeUnit.MILLISECONDS));
     }
 

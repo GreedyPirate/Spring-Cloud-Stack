@@ -2,6 +2,7 @@ package com.net.timer;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
+import java.util.Date;
 import java.util.concurrent.DelayQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -76,10 +77,16 @@ public class Timer {
      */
     private void advanceClock(long timeout) {
         try {
+            // 在while(true)中，可以理解为每隔20ms就在delayQueue中poll一次
             Bucket bucket = delayQueue.poll(timeout, TimeUnit.MILLISECONDS);
             if (bucket != null) {
+                System.out.println(new Date() + "--->" + new Date(bucket.getExpire()));
+                // bucket不为空说明有到期任务
                 timeWheel.advanceClock(bucket.getExpire());
-                bucket.flush(this::addTask);
+                // 遍历bucket双链表中的任务节点，并传给addTask方法调用，即执行每个任务
+                bucket.flush(t -> {
+                    this.addTask(t);
+                });
             }
         } catch (Exception e) {
             e.printStackTrace();

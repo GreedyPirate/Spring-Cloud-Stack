@@ -106,15 +106,27 @@ public class TimeWheel {
 
     /**
      * 尝试推进一下指针
+     * 其实就是同步每层时间轮的指针为timestamp
      */
     public void advanceClock(long timestamp) {
         if (timestamp >= currentTimestamp + tickMs) {
+            System.out.println("timestamp = " + timestamp+",currentTimestamp = "+currentTimestamp+", tickMs = " +tickMs);
             currentTimestamp = timestamp - (timestamp % tickMs);
-
+            System.out.println("currentTimestamp = " + currentTimestamp);
             if (overflowWheel != null) {
                 this.getOverflowWheel()
                         .advanceClock(timestamp);
             }
         }
+    }
+
+    public static void main(String[] args) {
+        long timestamp = 1569383366000L;
+        System.out.println("timestamp - (timestamp % 20) = " + (timestamp - (timestamp % 20)));
+        System.out.println("timestamp - (timestamp % 200) = " + (timestamp - (timestamp % 200)));
+        System.out.println("timestamp - (timestamp % 2000) = " + (timestamp - (timestamp % 2000)));
+
+        int i = 1024 - (1024%10);
+        System.out.println(i);
     }
 }
