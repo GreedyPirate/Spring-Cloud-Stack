@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.lang.reflect.AnnotatedType;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.Arrays;
 
@@ -158,5 +159,15 @@ public class ClassApi {
         color.set(car,"xxx");
         System.out.println(car.getColor());
         System.out.println(car);
+    }
+
+    @Test
+    public void testVoid() throws ClassNotFoundException, NoSuchMethodException {
+        Class<?> aClass = Class.forName("com.ttyc.jdk.assist.User");
+        Method method = aClass.getDeclaredMethod("talk", null);
+        Class<?> returnType = method.getReturnType();
+        System.out.println(returnType);
+        boolean assignableFrom = returnType.isAssignableFrom(Void.class);
+        System.out.println("assignableFrom = " + assignableFrom);
     }
 }
