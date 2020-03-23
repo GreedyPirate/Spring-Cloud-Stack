@@ -16,7 +16,7 @@ public class SemaphoreTest {
             try {
                 //获取信号量
                 semaphore.acquire();
-                long time = (long) (Math.random() * 10);
+                long time = (long) (Math.random() * 1000);
                 System.out.println(Thread.currentThread().getName() + "进入停车场，停车" + time + "秒..." );
                 Thread.sleep(time);
                 System.out.println(Thread.currentThread().getName() + "开出停车场...");
@@ -45,7 +45,7 @@ public class SemaphoreTest {
     public static void main(String[] args){
         Parking parking = new Parking(3);
 
-        for(int i = 0 ; i < 5 ; i++){
+        for(int i = 0 ; i < 20 ; i++){
             new Car(parking).start();
         }
     }

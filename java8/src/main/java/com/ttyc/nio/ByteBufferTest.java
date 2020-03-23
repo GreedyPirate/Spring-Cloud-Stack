@@ -55,10 +55,32 @@ public class ByteBufferTest {
         }
         System.out.println("str = " + new String(str));
 
+        buffer.rewind();
     }
 
 
     public void printBuffer(ByteBuffer buffer) {
         System.out.println("position :" + buffer.position() + ",limit :" + buffer.limit() + ",capacity" + buffer.capacity());
+    }
+
+    @Test
+    public void testArcticle() {
+        ByteBuffer buffer = ByteBuffer.allocate(8);
+        buffer.putInt(1);
+
+        printBuffer(buffer);
+
+        buffer.flip();
+        while (buffer.hasRemaining()) {
+            int anInt = buffer.getInt();
+            System.out.println("anInt = " + anInt);
+        }
+
+        System.out.println("-----------");
+        buffer.clear();
+        while (buffer.hasRemaining()) {
+            int anInt = buffer.getInt();
+            System.out.println("anInt = " + anInt);
+        }
     }
 }

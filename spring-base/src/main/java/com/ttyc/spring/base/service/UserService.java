@@ -35,6 +35,8 @@ public class UserService {
                 notifyService.sendMail("send a mail");
             }
 
+
+
         });
         if (true) throw new RuntimeException("fail insert");
         return Boolean.FALSE;

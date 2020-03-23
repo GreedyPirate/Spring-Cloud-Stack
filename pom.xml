@@ -37,7 +37,6 @@
         <module>consumer-ribbon</module>
         <module>eureka-server</module>
         <module>java8</module>
-        <module>jooq</module>
         <module>pom-test</module>
         <module>producer-client</module>
         <module>redisson-start</module>

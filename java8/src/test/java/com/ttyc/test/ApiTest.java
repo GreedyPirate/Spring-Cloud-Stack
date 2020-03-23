@@ -11,6 +11,7 @@ public class ApiTest {
 
         System.out.println();
 
-        String s= "";
+        String s= "haha";
+        System.out.println(s.getBytes().length);
     }
 }
