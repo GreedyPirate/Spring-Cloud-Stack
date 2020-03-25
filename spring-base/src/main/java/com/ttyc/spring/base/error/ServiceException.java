@@ -1,7 +1,12 @@
 package com.ttyc.spring.base.error;
 
 public class ServiceException extends RuntimeException{
-    public ServiceException(String message) {
-        super(message);
+
+    private ExceptionEnum exceptionEnum;
+
+    public ServiceException(ExceptionEnum exceptionEnum) {
+        this.exceptionEnum = exceptionEnum;
     }
+
+
 }

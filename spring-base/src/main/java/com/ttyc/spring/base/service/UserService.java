@@ -1,6 +1,7 @@
 package com.ttyc.spring.base.service;
 
 import com.ttyc.spring.base.dao.UserDao;
+import com.ttyc.spring.base.error.ExceptionEnum;
 import com.ttyc.spring.base.error.ServiceException;
 import com.ttyc.spring.base.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,8 @@ public class UserService {
                 notifyService.sendMail("send a mail");
             }
 
+
+
         });
         if (true) throw new RuntimeException("fail insert");
         return Boolean.FALSE;
@@ -54,7 +57,17 @@ public class UserService {
 
     private void judge() {
         if (true) {
-            throw new ServiceException("wrong");
+            throw new ServiceException(new ExceptionEnum() {
+                @Override
+                public int getCode() {
+                    return 1;
+                }
+
+                @Override
+                public String getMessage() {
+                    return "error";
+                }
+            });
         }
     }
 

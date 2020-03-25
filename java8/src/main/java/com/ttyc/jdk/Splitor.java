@@ -27,5 +27,9 @@ public class Splitor {
 
         Spliterator<String> d = a.trySplit();
         System.out.println(d.toString());
+
+
     }
+
+
 }

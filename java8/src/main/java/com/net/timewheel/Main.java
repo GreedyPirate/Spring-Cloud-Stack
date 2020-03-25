@@ -13,7 +13,7 @@ package com.net.timewheel;
 public class Main {
 	
 	public static void main(String[] args) throws InterruptedException {
-		final Wheel<String> wheel = Wheel.getInstance(13);
+		final Wheel<String> wheel = Wheel.getInstance(1000);
 		
 		wheel.addExpirationIntecepter(new ExpirationIntecepter<String>() {
 			

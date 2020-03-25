@@ -16,9 +16,9 @@ spring:
     locator:
       discovery:
         enabled: true
-    base-url: http://dev.zipkin.songguo7.com:9411/
+    base-url: http://localhost:9411/
   kafka:
-    bootstrap-servers: redis01.test.songguo7.com.ucb:9192,redis01.test.songguo7.com.ucb:9292,redis01.test.songguo7.com.ucb:9392
+    bootstrap-servers: localhost:9092
 eureka:
   client:
     service-url:
