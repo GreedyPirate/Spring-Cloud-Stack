@@ -12,9 +12,6 @@
     <developers>
         <developer>
             <name>杨杰</name>
-            <organization>松果</organization>
-            <organizationUrl>https://songguo7.com/</organizationUrl>
-            <email>yangjie@songguo7.com</email>
         </developer>
     </developers>
     <parent>
