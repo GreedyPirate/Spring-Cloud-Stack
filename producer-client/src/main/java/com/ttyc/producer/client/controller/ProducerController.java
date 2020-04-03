@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.core.env.Environment;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +21,9 @@ import java.util.Enumeration;
 @RestController
 public class ProducerController {
     private Logger logger = LoggerFactory.getLogger(ProducerController.class);
+
+    @Autowired
+    private Environment env;
 
     @Autowired
     DiscoveryClient discoveryClient;
@@ -55,5 +59,10 @@ public class ProducerController {
     @GetMapping("class/location")
     public String getClassLocal(String className){
         return ClassUtils.printLocation(className);
+    }
+
+    @GetMapping("ribbon/test")
+    public String ribbon() {
+        return env.getActiveProfiles()[0];
     }
 }
