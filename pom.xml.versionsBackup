@@ -9,14 +9,7 @@
     <version>1.0.0</version>
     <description>Spring-Cloud-Stack</description>
     <packaging>pom</packaging>
-    <developers>
-        <developer>
-            <name>杨杰</name>
-            <organization>松果</organization>
-            <organizationUrl>https://songguo7.com/</organizationUrl>
-            <email>yangjie@songguo7.com</email>
-        </developer>
-    </developers>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
