@@ -1,0 +1,17 @@
+server:
+  port: 8001
+spring:
+  profiles: slave
+  application:
+    name: eureka-slave
+eureka:
+  instance:
+    hostname: peer2
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:8000/eureka/
+    fetch-registry: false
+    register-with-eureka: false
+  server:
+    eviction-interval-timer-in-ms: 10000 # 每10s就去清理无效的实例
+    enable-self-preservation: false

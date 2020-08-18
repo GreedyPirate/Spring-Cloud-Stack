@@ -1,0 +1,22 @@
+server:
+  port: 8000
+spring:
+  profiles: master
+  application:
+    name: eureka-master
+eureka:
+  instance:
+    hostname: peer1
+## 客户端配置
+##    prefer-ip-address: true
+##    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+##    lease-renewal-interval-in-seconds: 10 #每10秒续租
+##    lease-expiration-duration-in-seconds: 30 #30到期
+  client:
+    serviceUrl:
+      defaultZone: http://peer2:8001/eureka/
+    fetch-registry: false
+    register-with-eureka: false
+  server:
+    eviction-interval-timer-in-ms: 10000 # 每10s就去清理无效的实例
+    enable-self-preservation: false

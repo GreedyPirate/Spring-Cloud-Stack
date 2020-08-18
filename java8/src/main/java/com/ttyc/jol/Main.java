@@ -10,9 +10,9 @@ public class Main {
     L lock = new L();
     public static void main(String[] args) {
         Main main = new Main();
-        System.out.println(VM.current().details());
-//        main.objectHeader();
-        main.lock();
+//        System.out.println(VM.current().details());
+        main.objectHeader();
+//        main.lock();
     }
 
     private void objectHeader() {
@@ -64,7 +64,6 @@ public class Main {
 
 
 class L {
-    private static String s = "a";
-    private short i = 0;
+
 }
 

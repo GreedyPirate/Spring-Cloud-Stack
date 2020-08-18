@@ -25,6 +25,8 @@ public class Main {
         String s = future.get();
         System.out.println(s);
 
+        System.out.println("2006024088541151233".length());
+
     }
 
 

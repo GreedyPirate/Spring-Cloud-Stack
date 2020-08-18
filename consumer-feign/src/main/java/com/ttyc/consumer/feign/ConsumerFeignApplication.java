@@ -28,7 +28,7 @@ public class ConsumerFeignApplication {
     @Autowired
     ProducerClient producerClient;
 
-    @GetMapping("php-test")
+    @GetMapping("go-test")
     public String sidecar() {
         return this.sideCarService.health();
     }
