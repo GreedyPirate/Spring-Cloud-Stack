@@ -57,7 +57,7 @@
         <lombok.version>1.16.20</lombok.version>
         <httpcient.version>4.5.5</httpcient.version>
         <httpclient.util.version>1.0</httpclient.util.version>
-        <fastjson.version>1.2.58</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <druid.version>1.1.9</druid.version>
     </properties>
 
